@@ -6,13 +6,20 @@
               <p class="text-muted">Data Keterlambatan Kereta.</p>
               <div class="card-deck col-md-8">
                 <div class="card shadow mb-4">
+                <div class="card-header">
+                      <strong class="card-title">Pilih Rentang Waktu</strong>
+                    </div>
                   <div class="card-body">
                     <form method="post" action="././home.php?r=data_keterlambatan">
-                      <div class="form-group">
-                        <label for="tgl1">Dari</label>
-                        <input type="date" class="form-control" id="tgl1" name="tgl1"  placeholder="Tanggal" value="<?php echo date('d/m/Y');?>" required>
-                        <label for="tgl2">Ke</label>
-                        <input type="date" class="form-control" id="tgl2" name="tgl2" placeholder="Tanggal" value="<?php echo date('d/m/Y');?>" required>
+                      <div class="form-row">
+                          <div class="col-md-6 mb-3">
+                            <label for="tgl1">Dari</label>
+                            <input type="date" class="form-control" id="tgl1" name="tgl1"  placeholder="Tanggal" value="<?php echo date('d/m/Y');?>" required>
+                          </div>
+                            <div class="col-md-6 mb-3">
+                            <label for="tgl2">Ke</label>
+                            <input type="date" class="form-control" id="tgl2" name="tgl2" placeholder="Tanggal" value="<?php echo date('d/m/Y');?>" required>
+                          </div>
                       </div>
                       <div class="form-group">
                         <label for="kelas">Kategori</label>
