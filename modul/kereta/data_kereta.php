@@ -33,10 +33,10 @@
                             $kelas = $_POST['kelas'];
                             $sqlkereta = "";
                             if ($kelas=="semua") {
-                                $sqlkereta = "select nis,nama,jk,kelas,kedatangan,keberangkatan from kereta order by nis asc";
+                                $sqlkereta = "select nis,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by nis asc";
                             }
                             else{
-                                $sqlkereta = "select nis,nama,jk,kelas,kedatangan,keberangkatan from kereta where kelas = '".$kelas."' order by nis asc";
+                                $sqlkereta = "select nis,nama,tujuan,kelas,kedatangan,keberangkatan from kereta where kelas = '".$kelas."' order by nis asc";
                             }
                             $no = 1;
                             $resultkereta = $conn->query($sqlkereta);
@@ -49,7 +49,7 @@
                                         <td><?php echo $no;?></td>
                                         <td><?php echo $row['nis'];?></td>
                                         <td><?php echo $nama_kereta;?></td>
-                                        <td><?php echo $row['jk'];?></td>
+                                        <td><?php echo $row['tujuan'];?></td>
                                         <td><?php echo $row['kelas'];?></td>
                                         <td><?php echo $row['kedatangan'];?></td>
                                         <td><?php echo $row['keberangkatan'];?></td>

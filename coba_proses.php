@@ -34,11 +34,11 @@ if(isset($_FILES['berkas_excel']['name']) && in_array($_FILES['berkas_excel']['t
 	{
         $nis = $sheetData[$i]['1'];
         $nama = $sheetData[$i]['2'];
-        $jk = $sheetData[$i]['3'];
+        $tujuan = $sheetData[$i]['3'];
         $kelas = $sheetData[$i]['4'];
         $kedatangan = $sheetData[$i]['5'];
         $keberangkatan = $sheetData[$i]['6'];
-        mysqli_query($koneksi,"insert into kereta values ('$nis','$nama','$jk','$kelas','$kedatangan','$keberangkatan')");
+        mysqli_query($koneksi,"insert into kereta values ('$nis','$nama','$tujuan','$kelas','$kedatangan','$keberangkatan')");
     }
     echo '<script>alert("Berhasil mengimport data."); document.location="home.php?r=import_kereta";</script>';
     // header("Location: home.php?r=import_kereta"); 

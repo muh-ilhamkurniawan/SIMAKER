@@ -6,11 +6,13 @@
                 $nis = $conn->real_escape_string($_GET['nis']);
                 $nama = $conn->real_escape_string($_GET['nama']);
                 $kelas = $conn->real_escape_string($_GET['kelas']);
+                $kedatangan = $conn->real_escape_string($_GET['kedatangan']);
+                $keberangkatan = $conn->real_escape_string($_GET['keberangkatan']);
                 $tgl1 = $conn->real_escape_string($_GET['tgl1']);
                 $tgl2 = $conn->real_escape_string($_GET['tgl2']);
                 ?>
               <h2 class="mb-2 page-title">Detail Laporan Keterlambatan Kereta</h2>
-              <p class="card-text">Lihat Data Keterlambat <?php echo $kelas;?> <?php echo $nama;?>-<?php echo $nis;?> <br/> Dari <?php echo $tgl1;?> Sampai <?php echo $tgl2;?>
+              <p class="card-text">Lihat Data Keterlambat <?php echo $kelas;?> <?php echo $nama;?>-<?php echo $nis;?><br>Kedatangan: <?php echo $kedatangan;?> - Keberangkatan: <?php echo $keberangkatan;?> <br/> Dari <?php echo $tgl1;?> Sampai <?php echo $tgl2;?>
               </p>
               <a href="home.php?r=keterlambatan" class="btn btn-danger">Kembali</a>
               <div class="row my-4">
@@ -24,15 +26,12 @@
                           <tr>
                           <th>ID</th>
                                 <th>Tanggal</th>
-                                <th>Kedatangan</th>
-                                <th>Keberangkatan</th>
                                 <th>Kedatangan Real</th>
                                 <th>Keberangkatan Real</th>
                                 <th>Keterlambatan Datang</th>
                                 <th>Keterlambatan Berangkat</th>
                                 <th>Keterangan</th>
                                 <th>Aksi</th>
-                                <th></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -49,15 +48,19 @@
                                         $date1 = date('d/m/Y', strtotime($tgl1));
                                         echo $date1;
                                         ?></td>
-                                        <td><?php echo $rowDetail['kedatangan'];?></td>
-                                        <td><?php echo $rowDetail['keberangkatan'];?></td>
                                         <td><?php echo $rowDetail['real_datang'];?></td>
                                         <td><?php echo $rowDetail['real_berangkat'];?></td>
                                         <td><?php echo $rowDetail['lama_datang'];?> menit</td>
                                         <td><?php echo $rowDetail['lama_berangkat'];?> menit</td>
                                         <td><?php echo $rowDetail['alasan'];?></td>
-                                        <td><a href="././home.php?r=edit_keterlambatan&id=<?php echo $rowDetail['id'];?>" class="btn btn-primary">Edit</a></td>
-                                        <td><a href="././hapus.php?k=hapus_detail&id=<?php echo $rowDetail['id'];?>" onclick="return confirm('Yakin Hapus Data?')" class="btn btn-danger">Hapus</a></td>
+                                        <td>
+                                          <button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          </button>
+                                          <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="././home.php?r=edit_keterlambatan&id=<?php echo $rowDetail['id'];?>">Edit</a>
+                                            <a class="dropdown-item" href="././hapus.php?k=hapus_detail&id=<?php echo $rowDetail['id'];?>" onclick="return confirm('Yakin Hapus Data?')">Hapus</a>
+                                          </div>
+                                        </td>
                                     </tr>
                                     <?php
                                 }

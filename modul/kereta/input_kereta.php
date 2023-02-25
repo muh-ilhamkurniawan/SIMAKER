@@ -18,7 +18,7 @@
                       </div>
                       <div class="form-group">
                         <label for="inputAddress">Tujuan</label>
-                        <input type="text" class="form-control" id="jk" name="jk" placeholder="tujuan" onkeyup="this.value = this.value.toUpperCase()" required>
+                        <input type="text" class="form-control" id="tujuan" name="tujuan" placeholder="tujuan" onkeyup="this.value = this.value.toUpperCase()" required>
                       </div>
                       <div class="form-group">
                         <label for="inputAddress2">Kategori</label>

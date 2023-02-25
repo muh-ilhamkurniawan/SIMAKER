@@ -49,7 +49,7 @@ if ($ip=='import_kereta') {
 if ($ip=='input_kereta') {
 	$nis = strtoupper($_POST['nis']);
 	$nama = strtoupper($_POST['nama']);
-	$jk = strtoupper($_POST['jk']);
+	$tujuan = strtoupper($_POST['tujuan']);
 	$kelas = $_POST['kelas'];
 	$berangkat = $_POST['berangkat'];
 	$datang = $_POST['datang'];
@@ -60,7 +60,7 @@ if ($ip=='input_kereta') {
         echo "<script>window.alert('Maaf No KA Sudah Ada');
         window.location=('home.php?r=input_kereta')</script>";
     } else{
-		$sqlInputKereta = "insert into kereta value('".$nis."','".$nama."','".$jk."','".$kelas."','".$datang."','".$berangkat."')";
+		$sqlInputKereta = "insert into kereta value('".$nis."','".$nama."','".$tujuan."','".$kelas."','".$datang."','".$berangkat."')";
 		if ($conn->query($sqlInputKereta)===TRUE) {
 			echo "<script>window.alert('Data Tersimpan');
 			window.location=('home.php?r=input_kereta')</script>";
@@ -78,9 +78,9 @@ if ($ip=='edit_kereta') {
 	$nis = $_POST['nis'];
 	$nama = $_POST['nama'];
 	$nama = $conn->real_escape_string($nama);
-	$jk = $_POST['jk'];
+	$tujuan = $_POST['tujuan'];
 	$kelas = $_POST['kelas'];
-	$sql = "update kereta set nama = '".$nama."', jk = '".$jk."', kelas = '".$kelas."' WHERE nis = '".$nis."'";
+	$sql = "update kereta set nama = '".$nama."', tujuan = '".$tujuan."', kelas = '".$kelas."' WHERE nis = '".$nis."'";
 	if ($conn->query($sql)===TRUE) {
 		echo "<script>window.alert('Data Edit Kereta Tersimpan');
         window.location=('home.php?r=data_kereta')</script>";

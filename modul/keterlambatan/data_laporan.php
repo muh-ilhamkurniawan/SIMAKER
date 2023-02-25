@@ -41,10 +41,10 @@
                             $sqlkeretatelat = "";
                             $ab = 1;
                             if ($kelas=="semua") {
-                                $sqlkeretatelat = "select distinct transaksitelat.nis, kereta.nama,kereta.kelas from transaksitelat join kereta on transaksitelat.nis = kereta.nis where transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.nis asc";
+                                $sqlkeretatelat = "select distinct transaksitelat.nis, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan from transaksitelat join kereta on transaksitelat.nis = kereta.nis where transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.nis asc";
                             }
                             else{
-                                $sqlkeretatelat = "select distinct transaksitelat.nis, kereta.nama,kereta.kelas from transaksitelat join kereta on transaksitelat.nis = kereta.nis where kereta.kelas = '".$kelas."' and transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.nis asc";
+                                $sqlkeretatelat = "select distinct transaksitelat.nis, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan from transaksitelat join kereta on transaksitelat.nis = kereta.nis where kereta.kelas = '".$kelas."' and transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.nis asc";
                             }
                             $resultkeretatelat = $conn->query($sqlkeretatelat);
                             if ($resultkeretatelat->num_rows>0) {
@@ -78,7 +78,7 @@
                                             echo " menit";
                                             ?>
                                         </td>
-                                        <td><a href="././home.php?r=detail_keterlambatan&nis=<?php echo $row['nis'];?>&nama=<?php echo $row['nama'];?>&kelas=<?php echo $row['kelas'];?>&tgl1=<?php echo $date1;?>&tgl2=<?php echo $date2;?>" class="btn btn-primary">Detail</a></td>
+                                        <td><a href="././home.php?r=detail_keterlambatan&nis=<?php echo $row['nis'];?>&nama=<?php echo $row['nama'];?>&kelas=<?php echo $row['kelas'];?>&kedatangan=<?php echo $row['kedatangan'];?>&keberangkatan=<?php echo $row['keberangkatan'];?>&tgl1=<?php echo $date1;?>&tgl2=<?php echo $date2;?>" class="btn btn-primary">Detail</a></td>
                                     </tr><?php $ab++;
                                 }
                             }

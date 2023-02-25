@@ -24,7 +24,7 @@
                       </div>
                       <div class="form-group">
                         <label for="inputAddress">Tujuan</label>
-                        <input type="text" class="form-control" id="jk" name="jk" placeholder="tujuan" onkeyup="this.value = this.value.toUpperCase()" value="<?php echo $show['jk'];?>" required>
+                        <input type="text" class="form-control" id="tujuan" name="tujuan" placeholder="tujuan" onkeyup="this.value = this.value.toUpperCase()" value="<?php echo $show['tujuan'];?>" required>
                       </div>
                       <div class="form-group">
                         <label for="inputAddress2">Kategori</label>

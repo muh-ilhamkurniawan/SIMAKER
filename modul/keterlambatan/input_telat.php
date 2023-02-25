@@ -91,7 +91,7 @@
                         </thead>
                         <tbody>
                         <?php
-                            $sqlkereta = "select nis,nama,jk,kelas,kedatangan,keberangkatan from kereta order by nis asc limit 8";
+                            $sqlkereta = "select nis,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by nis asc limit 8";
                             $resultkereta = $conn->query($sqlkereta);
                             if ($resultkereta->num_rows>0) {
                                 while ($row = $resultkereta->fetch_assoc()) {
@@ -99,7 +99,7 @@
                                     <tr>
                                     <td><?php echo $row['nis'];?></td>
                                         <td><?php echo $row['nama'];?></td>
-                                        <td><?php echo $row['jk'];?></td>
+                                        <td><?php echo $row['tujuan'];?></td>
                                     </tr><?php
                                 }
                             }
