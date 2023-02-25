@@ -1,3 +1,5 @@
+<?php
+  if ($_SESSION['b_level']=='admin') {?>
       <main role="main" class="main-content">
         <div class="container-fluid">
           <div class="row justify-content-center">
@@ -175,3 +177,8 @@
           </div>
         </div>
       </main> <!-- main -->
+      <?php
+ } else{
+  echo "<script>window.alert('Anda Harus Masuk Sebagai Admin Terlebih Dahulu');window.location=('home.php?r=beranda')</script>";
+}
+ ?>

@@ -7,16 +7,17 @@
               <div class="card-deck col-md-8">
                 <div class="card shadow mb-4">
                   <div class="card-body">
-                    <form>
+                    <fieldset>
+                    <form enctype="multipart/form-data" method="post" action="././coba_proses.php">
                       <div class="form-group">
-                        <label for="inputAddress">Pilih Hanya xls File. <a href="././contoh.xls">Contoh</a></label>
+                        <label for="exampleInputFile">Pilih hanya xlsx file .<a href="././contoh_file.xlsx">Contoh</a><br> <i>No KA yang sudah ada tidak akan ditambahkan</i> </label>
                         <div>
-                        <input type="file" name="filepegawai" required="required" id="file" size="150">
+                          <input type="file" name="berkas_excel" class="form-control" id="exampleInputFile" accept=".xlsx">
                         </div>
-                        
                       </div>
-                      <input name="upload" type="submit" value="Import" class="btn btn-primary">
+                      <button type="submit" class="btn btn-primary">Import</button>
                     </form>
+                    </fieldset>
                   </div>
                 </div>
               </div> <!-- / .card-desk-->

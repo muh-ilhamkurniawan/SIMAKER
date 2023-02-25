@@ -22,7 +22,7 @@ if ($ip=="input_kategori") {
     }
 	
 }
-if ($ip=='import_siswa') {
+if ($ip=='import_kereta') {
 	$file = $_FILES['file']['tmp_name'];
 	$handle = fopen($file, "r");
 	$c = 0;
@@ -31,7 +31,7 @@ if ($ip=='import_siswa') {
 			$c++;
 			if ($c>1) {
 				$namaString = $conn->real_escape_string($filename[2]);
-				$sql = "insert into siswa value('".$filename[0]."','".$filename[1]."','".$namaString."','".$filename[3]."','".$filename[4]."')";
+				$sql = "insert into siswa value('".$filename[0]."','".$filename[1]."','".$namaString."','".$filename[3]."','".$filename[4]."','".$filename[5]."')";
 				if ($conn->query($sql)===TRUE) {
 					
 				}
@@ -41,7 +41,7 @@ if ($ip=='import_siswa') {
 			}
 		}
 		echo "<script>window.alert('Data Siswa Tersimpan');
-        window.location=('home.php?r=import_siswa')</script>";
+        window.location=('home.php?r=import_kereta')</script>";
 	} catch (Exception $e) {
 		echo "error";
 	}

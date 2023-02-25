@@ -1,5 +1,11 @@
 <?php
     include 'koneksi.php';
+    session_start();
+    if (isset($_SESSION['a_user'])) {
+      $sqluser = "select username from admin where username='".$_SESSION['a_user']."'";
+      $hasiluser = $conn->query($sqluser);
+      if ($hasiluser->num_rows>=1) {
+        # code...
 ?>
 <!doctype html>
 <html lang="en">
@@ -8,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="./assets/avatars/kai.png" >
     <title>SIMAKER</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="css/simplebar.css">
@@ -125,3 +131,15 @@
     </script>
   </body>
 </html>
+<?php
+    }
+    else{
+      echo "<script>window.alert('Anda Harus Masuk Terlebih Dahulu');window.location=('login.php')</script>";
+    }
+  }
+  else{
+    echo "<script>window.alert('Anda Harus Masuk Terlebih Dahulu');window.location=('login.php')</script>";
+  }
+  ?>
+
+  <?php $conn->close()?>

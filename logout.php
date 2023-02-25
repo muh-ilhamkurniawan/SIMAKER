@@ -11,7 +11,6 @@ session_start();
         $query = "UPDATE activity_log SET waktu_logout = now() WHERE id = '$log'";
         
         $result = $conn->query($query);
-        
 if(session_destroy()) // Destroying All Sessions
 {
 header("Location: login.php"); // Redirecting To Home Page
