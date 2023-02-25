@@ -23,8 +23,8 @@
                         <label for="nistelat">No KA</label>
                         <input type="text" class="form-control" id="nistelat" name="nistelat"  placeholder="No KA" onkeyup="this.value = this.value.toUpperCase()"  onchange='changeValue(this.value)' required>
                         <?php   
-                              $query = mysqli_query($con, "select * from siswa order by nis esc");  
-                              $result = mysqli_query($con, "select * from siswa");  
+                              $query = mysqli_query($con, "select * from kereta order by nis esc");  
+                              $result = mysqli_query($con, "select * from kereta");  
                               $a          = "var kedatangan = new Array();\n;";  
                               $b          = "var keberangkatan = new Array();\n;";  
                               while ($row = mysqli_fetch_array($result)) {  
@@ -91,10 +91,10 @@
                         </thead>
                         <tbody>
                         <?php
-                            $sqlsiswa = "select nis,nama,jk,kelas,kedatangan,keberangkatan from siswa order by nis asc";
-                            $resultsiswa = $conn->query($sqlsiswa);
-                            if ($resultsiswa->num_rows>0) {
-                                while ($row = $resultsiswa->fetch_assoc()) {
+                            $sqlkereta = "select nis,nama,jk,kelas,kedatangan,keberangkatan from kereta order by nis asc limit 8";
+                            $resultkereta = $conn->query($sqlkereta);
+                            if ($resultkereta->num_rows>0) {
+                                while ($row = $resultkereta->fetch_assoc()) {
                                     ?>
                                     <tr>
                                     <td><?php echo $row['nis'];?></td>

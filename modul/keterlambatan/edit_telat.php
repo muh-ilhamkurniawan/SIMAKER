@@ -28,7 +28,7 @@
                       </div>
                       <div class="form-group"> 
                       <?php
-                          $sqljadwal = "select nama, kedatangan, keberangkatan from siswa where nis = '".$show['nis']."'";
+                          $sqljadwal = "select nama, kedatangan, keberangkatan from kereta where nis = '".$show['nis']."'";
                           $hasiljadwal = $conn->query($sqljadwal);
                           $showjdw = $hasiljadwal->fetch_assoc();
                     ?>
@@ -97,10 +97,10 @@
                         </thead>
                         <tbody>
                         <?php
-                            $sqlsiswa = "select nis,nama,jk,kelas,kedatangan,keberangkatan from siswa order by nis asc";
-                            $resultsiswa = $conn->query($sqlsiswa);
-                            if ($resultsiswa->num_rows>0) {
-                                while ($row = $resultsiswa->fetch_assoc()) {
+                            $sqlkereta = "select nis,nama,jk,kelas,kedatangan,keberangkatan from kereta order by nis asc";
+                            $resultkereta = $conn->query($sqlkereta);
+                            if ($resultkereta->num_rows>0) {
+                                while ($row = $resultkereta->fetch_assoc()) {
                                     ?>
                                     <tr>
                                     <td><?php echo $row['nis'];?></td>

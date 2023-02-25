@@ -37,7 +37,7 @@
                         </thead>
                         <tbody>
                         <?php
-                            $sqldetail = "select distinct transaksitelat.nis,transaksitelat.id, siswa.nama,siswa.kelas, siswa.kedatangan, siswa.keberangkatan,transaksitelat.tanggal,transaksitelat.lama_datang,transaksitelat.lama_berangkat,transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join siswa on transaksitelat.nis = siswa.nis where transaksitelat.nis ='".$nis."' and transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
+                            $sqldetail = "select distinct transaksitelat.nis,transaksitelat.id, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan,transaksitelat.tanggal,transaksitelat.lama_datang,transaksitelat.lama_berangkat,transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join kereta on transaksitelat.nis = kereta.nis where transaksitelat.nis ='".$nis."' and transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
                             $resultDetail = $conn->query($sqldetail);
                             if ($resultDetail->num_rows>0) {
                                 while ($rowDetail=$resultDetail->fetch_assoc()) {

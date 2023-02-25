@@ -38,17 +38,17 @@
                         <tbody>
                         <?php
                             
-                            $sqlsiswatelat = "";
+                            $sqlkeretatelat = "";
                             $ab = 1;
                             if ($kelas=="semua") {
-                                $sqlsiswatelat = "select distinct transaksitelat.nis, siswa.nama,siswa.kelas from transaksitelat join siswa on transaksitelat.nis = siswa.nis where transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.nis asc";
+                                $sqlkeretatelat = "select distinct transaksitelat.nis, kereta.nama,kereta.kelas from transaksitelat join kereta on transaksitelat.nis = kereta.nis where transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.nis asc";
                             }
                             else{
-                                $sqlsiswatelat = "select distinct transaksitelat.nis, siswa.nama,siswa.kelas from transaksitelat join siswa on transaksitelat.nis = siswa.nis where siswa.kelas = '".$kelas."' and transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.nis asc";
+                                $sqlkeretatelat = "select distinct transaksitelat.nis, kereta.nama,kereta.kelas from transaksitelat join kereta on transaksitelat.nis = kereta.nis where kereta.kelas = '".$kelas."' and transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.nis asc";
                             }
-                            $resultsiswatelat = $conn->query($sqlsiswatelat);
-                            if ($resultsiswatelat->num_rows>0) {
-                                while ($row = $resultsiswatelat->fetch_assoc()) {
+                            $resultkeretatelat = $conn->query($sqlkeretatelat);
+                            if ($resultkeretatelat->num_rows>0) {
+                                while ($row = $resultkeretatelat->fetch_assoc()) {
                                     ?>
                                     <tr>
                                         <td><?php echo $ab;?></td>

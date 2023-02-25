@@ -6,12 +6,12 @@ if ($key=='export_transaksi') {
 	$tgl2 = $_GET['date2'];
 	$kelas = $_GET['kelas'];
 	$hari = date("d-m-Y");
-	$sqlsiswatelat = "";
+	$sqlkeretatelat = "";
     if ($kelas=="semua") {
-        $sqlsiswatelat = "select transaksitelat.nis,transaksitelat.lama_datang, transaksitelat.lama_berangkat, siswa.nama,siswa.kelas,transaksitelat.tanggal, siswa.kedatangan, siswa.keberangkatan, transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join siswa on transaksitelat.nis = siswa.nis where transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
+        $sqlkeretatelat = "select transaksitelat.nis,transaksitelat.lama_datang, transaksitelat.lama_berangkat, kereta.nama,kereta.kelas,transaksitelat.tanggal, kereta.kedatangan, kereta.keberangkatan, transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join kereta on transaksitelat.nis = kereta.nis where transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
     }
     else{
-        $sqlsiswatelat = "select transaksitelat.nis, siswa.nama,siswa.kelas,transaksitelat.tanggal,transaksitelat.alasan from transaksitelat join siswa on transaksitelat.nis = siswa.nis where siswa.kelas = '".$kelas."' and transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
+        $sqlkeretatelat = "select transaksitelat.nis, kereta.nama,kereta.kelas,transaksitelat.tanggal,transaksitelat.alasan from transaksitelat join kereta on transaksitelat.nis = kereta.nis where kereta.kelas = '".$kelas."' and transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
     }
     // Fungsi header dengan mengirimkan raw data excel
 	header("Content-type: application/vnd-ms-excel");
@@ -39,9 +39,9 @@ if ($key=='export_transaksi') {
 		<tbody>
 			<?php
 			$ab = 1;
-			$resultsiswatelat = $conn->query($sqlsiswatelat);
-            if ($resultsiswatelat->num_rows>0) {
-                while ($row = $resultsiswatelat->fetch_assoc()) {
+			$resultkeretatelat = $conn->query($sqlkeretatelat);
+            if ($resultkeretatelat->num_rows>0) {
+                while ($row = $resultkeretatelat->fetch_assoc()) {
                 ?>
                 <tr>
                     <td><?php echo $ab;?></td>

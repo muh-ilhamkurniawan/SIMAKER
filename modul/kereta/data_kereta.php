@@ -31,17 +31,17 @@
                         <tbody>
                         <?php
                             $kelas = $_POST['kelas'];
-                            $sqlsiswa = "";
+                            $sqlkereta = "";
                             if ($kelas=="semua") {
-                                $sqlsiswa = "select nis,nama,jk,kelas,kedatangan,keberangkatan from siswa order by nis asc";
+                                $sqlkereta = "select nis,nama,jk,kelas,kedatangan,keberangkatan from kereta order by nis asc";
                             }
                             else{
-                                $sqlsiswa = "select nis,nama,jk,kelas,kedatangan,keberangkatan from siswa where kelas = '".$kelas."' order by nis asc";
+                                $sqlkereta = "select nis,nama,jk,kelas,kedatangan,keberangkatan from kereta where kelas = '".$kelas."' order by nis asc";
                             }
                             $no = 1;
-                            $resultsiswa = $conn->query($sqlsiswa);
-                            if ($resultsiswa->num_rows>0) {
-                                while ($row = $resultsiswa->fetch_assoc()) {
+                            $resultkereta = $conn->query($sqlkereta);
+                            if ($resultkereta->num_rows>0) {
+                                while ($row = $resultkereta->fetch_assoc()) {
                                     $nis_kereta = $row['nis'];
                                     $nama_kereta = $row['nama'];
                                     ?>
@@ -54,7 +54,7 @@
                                         <td><?php echo $row['kedatangan'];?></td>
                                         <td><?php echo $row['keberangkatan'];?></td>
                                         <td><a href="home.php?r=edit_kereta&id=<?php echo $row['nis'];?>" class="btn btn-primary">Edit</a></td>
-                                        <td><a href="././hapus.php?k=hapus_siswa&id=<?php echo $row['nis'];?>" onclick="return confirm('Yakin Hapus Kereta \'<?php echo $nama_kereta;?>-<?php echo $nis_kereta;?>\'?')" class="btn btn-danger">Hapus</a></td>
+                                        <td><a href="././hapus.php?k=hapus_kereta&id=<?php echo $row['nis'];?>" onclick="return confirm('Yakin Hapus Kereta \'<?php echo $nama_kereta;?>-<?php echo $nis_kereta;?>\'?')" class="btn btn-danger">Hapus</a></td>
                                         <?php
                                     $no++;
                                      ?>

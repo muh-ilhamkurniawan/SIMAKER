@@ -31,7 +31,7 @@ if ($ip=='import_kereta') {
 			$c++;
 			if ($c>1) {
 				$namaString = $conn->real_escape_string($filename[2]);
-				$sql = "insert into siswa value('".$filename[0]."','".$filename[1]."','".$namaString."','".$filename[3]."','".$filename[4]."','".$filename[5]."')";
+				$sql = "insert into kereta value('".$filename[0]."','".$filename[1]."','".$namaString."','".$filename[3]."','".$filename[4]."','".$filename[5]."')";
 				if ($conn->query($sql)===TRUE) {
 					
 				}
@@ -54,13 +54,13 @@ if ($ip=='input_kereta') {
 	$berangkat = $_POST['berangkat'];
 	$datang = $_POST['datang'];
 	$nama = $conn->real_escape_string($nama);
-	$sql = "SELECT nis FROM siswa where nis='".$nis."'";
+	$sql = "SELECT nis FROM kereta where nis='".$nis."'";
 	$cekNis = $conn->query($sql);
 	if($cekNis->num_rows > 0) {
         echo "<script>window.alert('Maaf No KA Sudah Ada');
         window.location=('home.php?r=input_kereta')</script>";
     } else{
-		$sqlInputKereta = "insert into siswa value('".$nis."','".$nama."','".$jk."','".$kelas."','".$datang."','".$berangkat."')";
+		$sqlInputKereta = "insert into kereta value('".$nis."','".$nama."','".$jk."','".$kelas."','".$datang."','".$berangkat."')";
 		if ($conn->query($sqlInputKereta)===TRUE) {
 			echo "<script>window.alert('Data Tersimpan');
 			window.location=('home.php?r=input_kereta')</script>";
@@ -80,7 +80,7 @@ if ($ip=='edit_kereta') {
 	$nama = $conn->real_escape_string($nama);
 	$jk = $_POST['jk'];
 	$kelas = $_POST['kelas'];
-	$sql = "update siswa set nama = '".$nama."', jk = '".$jk."', kelas = '".$kelas."' WHERE nis = '".$nis."'";
+	$sql = "update kereta set nama = '".$nama."', jk = '".$jk."', kelas = '".$kelas."' WHERE nis = '".$nis."'";
 	if ($conn->query($sql)===TRUE) {
 		echo "<script>window.alert('Data Edit Kereta Tersimpan');
         window.location=('home.php?r=data_kereta')</script>";
@@ -226,7 +226,7 @@ if ($ip=='edit_admin') {
 if ($ip=='update_kelas') {
 	$kelas = $_POST['kelas'];
 	foreach ($_POST['naik'] as $naik) {
-		$updateKelas = "update siswa set kelas = '".$kelas."' where nis ='".$naik."'";
+		$updateKelas = "update kereta set kelas = '".$kelas."' where nis ='".$naik."'";
 		if ($conn->query($updateKelas)===TRUE) {
 		}
 		else{
@@ -234,7 +234,7 @@ if ($ip=='update_kelas') {
 		}
 	}
 	echo "<script>window.alert('Data Update Tersimpan');
-        window.location=('home.php?r=kenaikan_kelulusan_siswa')</script>";
+        window.location=('home.php?r=kenaikan_kelulusan_kereta')</script>";
 }
 if ($ip=='hadir') {
 	$var = $_POST['tgl'];

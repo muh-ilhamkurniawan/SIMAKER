@@ -6,8 +6,8 @@ include 'koneksi.php';
 $key = $_GET['k'];
 $nis = $_GET['id'];
 $nis = $conn->real_escape_string($nis);
-if ($key=='hapus_siswa') {
-	$sqlhapus = "delete from siswa where nis ='".$nis."'";
+if ($key=='hapus_kereta') {
+	$sqlhapus = "delete from kereta where nis ='".$nis."'";
 	if ($conn->query($sqlhapus)===TRUE) {
 		echo "<script>window.alert('Data Kereta Terhapus');
         window.location=('home.php?r=data_kereta')</script>";
@@ -16,14 +16,14 @@ if ($key=='hapus_siswa') {
 		echo "error".$conn->error;
 	}
 }
-if ($key=='hapus_siswa_kategori') {
+if ($key=='hapus_kereta_kategori') {
 	$namaKelas = $_GET['id'];
 	$namaKelas = $conn->real_escape_string($namaKelas);
 	$sqlHapusSiswaKategori = "";
-	$sqlHapusSiswaKategori = "delete from siswa where kelas ='".$namaKelas."'";
+	$sqlHapusSiswaKategori = "delete from kereta where kelas ='".$namaKelas."'";
 	if ($conn->query($sqlHapusSiswaKategori)===TRUE) {
 		echo "<script>window.alert('Data Siswa Terhapus');
-        window.location=('home.php?r=data_siswa')</script>";
+        window.location=('home.php?r=data_kereta')</script>";
 	}
 	else{
 		echo "error".$conn->error;

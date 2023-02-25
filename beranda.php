@@ -19,7 +19,7 @@
                           <p class="small text-muted mb-0">Total Kereta</p>
                           <span class="h3 mb-0">
                           <?php
-                            $resultcount = $conn->query("select count(nis) as total from siswa");
+                            $resultcount = $conn->query("select count(nis) as total from kereta");
                             $totalcount = $resultcount->fetch_assoc();
                             echo $totalcount['total'];
                             ?>
@@ -121,7 +121,7 @@
                     </thead>
                     <tbody>
                     <?php
-                            $sqldetail = "select distinct transaksitelat.nis,transaksitelat.id, siswa.nama,siswa.kelas, siswa.kedatangan, siswa.keberangkatan,transaksitelat.tanggal,transaksitelat.lama_datang,transaksitelat.lama_berangkat,transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join siswa on transaksitelat.nis = siswa.nis order by transaksitelat.id desc limit 5";
+                            $sqldetail = "select distinct transaksitelat.nis,transaksitelat.id, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan,transaksitelat.tanggal,transaksitelat.lama_datang,transaksitelat.lama_berangkat,transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join kereta on transaksitelat.nis = kereta.nis order by transaksitelat.id desc limit 5";
                             $resultDetail = $conn->query($sqldetail);
                             if ($resultDetail->num_rows>0) {
                                 while ($rowDetail=$resultDetail->fetch_assoc()) {
@@ -179,7 +179,7 @@
                           </div>
                           <div class="row align-items-center">
                             <div class="col-md-7 mb-2">
-                              <span class="small text-muted mb-0">Dibuat sebagai hasil kerja praktek </br>Mahasiswa Informatika Universitas Jendral Soedirman </br> @2023</span>
+                              <span class="small text-muted mb-0">Dibuat sebagai hasil kerja praktek </br>Mahakereta Informatika Universitas Jendral Soedirman </br> @2023</span>
                             </div>
                             <div class="col mb-2">
                               <button type="button" class="btn btn-primary">Unduh Panduan</button>

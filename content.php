@@ -27,19 +27,19 @@ if (isset($_GET['r'])) {
 	if ($key=='edit_kereta') {
 		include 'modul/kereta/edit_kereta.php';
 	}
-	if ($key=='hapus_data_siswa') {
+	if ($key=='hapus_data_kereta') {
 		include 'modul/kereta/hapus.php';
 	}
-	if ($key=='input_siswa_hadir') {
+	if ($key=='input_kereta_hadir') {
 		include 'modul/transaksi/inputtelat.php';
 	}
-	if ($key=='laporan_siswa_hadir') {
+	if ($key=='laporan_kereta_hadir') {
 		include 'modul/transaksi/laporan.php';
 	}
-	if ($key=='data_siswa_hadir') {
+	if ($key=='data_kereta_hadir') {
 		include 'modul/transaksi/datalaporan.php';
 	}
-	if ($key=='detail_siswa_hadir') {
+	if ($key=='detail_kereta_hadir') {
 		include 'modul/transaksi/detailtelat.php';
 	}
 	
@@ -61,11 +61,11 @@ if (isset($_GET['r'])) {
 
 
 	
-	if ($key=='kenaikan_kelulusan_siswa') {
-		include 'modul/siswa/kelasLulus.php';
+	if ($key=='kenaikan_kelulusan_kereta') {
+		include 'modul/kereta/kelasLulus.php';
 	}
-	if ($key=='proses_kenaikan_kelulusan_siswa') {
-		include 'modul/siswa/prosesKelasLulus.php';
+	if ($key=='proses_kenaikan_kelulusan_kereta') {
+		include 'modul/kereta/prosesKelasLulus.php';
 	}
 
 

@@ -6,7 +6,7 @@
               <p class="text-muted">Edit Data Kereta.</p>
               <?php
                   $id=$_GET['id'];
-                  $sqledit = "select * from siswa where nis = '".$id."'";
+                  $sqledit = "select * from kereta where nis = '".$id."'";
                   $hasiledit = $conn->query($sqledit);
                   $show = $hasiledit->fetch_assoc();
                   ?>
