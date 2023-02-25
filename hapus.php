@@ -4,10 +4,10 @@ error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED);
 error_reporting(0);
 include 'koneksi.php';
 $key = $_GET['k'];
-$nis = $_GET['id'];
-$nis = $conn->real_escape_string($nis);
+$no_ka = $_GET['id'];
+$no_ka = $conn->real_escape_string($no_ka);
 if ($key=='hapus_kereta') {
-	$sqlhapus = "delete from kereta where nis ='".$nis."'";
+	$sqlhapus = "delete from kereta where no_ka ='".$no_ka."'";
 	if ($conn->query($sqlhapus)===TRUE) {
 		echo "<script>window.alert('Data Kereta Terhapus');
         window.location=('home.php?r=data_kereta')</script>";

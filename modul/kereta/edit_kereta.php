@@ -6,7 +6,7 @@
               <p class="text-muted">Edit Data Kereta.</p>
               <?php
                   $id=$_GET['id'];
-                  $sqledit = "select * from kereta where nis = '".$id."'";
+                  $sqledit = "select * from kereta where no_ka = '".$id."'";
                   $hasiledit = $conn->query($sqledit);
                   $show = $hasiledit->fetch_assoc();
                   ?>
@@ -16,7 +16,7 @@
                     <form method="post" action="././simpan.php?ip=edit_kereta">
                       <div class="form-group">
                         <label for="inputAddress">No KA</label>
-                        <input type="text" class="form-control" id="nis" name="nis" placeholder="No KA" onkeyup="this.value = this.value.toUpperCase()" value="<?php echo $show['nis'];?>" readonly>
+                        <input type="text" class="form-control" id="no_ka" name="no_ka" placeholder="No KA" onkeyup="this.value = this.value.toUpperCase()" value="<?php echo $show['no_ka'];?>" readonly>
                       </div>
                       <div class="form-group">
                         <label for="inputAddress">Nama KA</label>

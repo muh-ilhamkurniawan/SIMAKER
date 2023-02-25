@@ -47,20 +47,20 @@ if ($ip=='import_kereta') {
 	}
 }
 if ($ip=='input_kereta') {
-	$nis = strtoupper($_POST['nis']);
+	$no_ka = strtoupper($_POST['no_ka']);
 	$nama = strtoupper($_POST['nama']);
 	$tujuan = strtoupper($_POST['tujuan']);
 	$kelas = $_POST['kelas'];
 	$berangkat = $_POST['berangkat'];
 	$datang = $_POST['datang'];
 	$nama = $conn->real_escape_string($nama);
-	$sql = "SELECT nis FROM kereta where nis='".$nis."'";
+	$sql = "SELECT no_ka FROM kereta where no_ka='".$no_ka."'";
 	$cekNis = $conn->query($sql);
 	if($cekNis->num_rows > 0) {
         echo "<script>window.alert('Maaf No KA Sudah Ada');
         window.location=('home.php?r=input_kereta')</script>";
     } else{
-		$sqlInputKereta = "insert into kereta value('".$nis."','".$nama."','".$tujuan."','".$kelas."','".$datang."','".$berangkat."')";
+		$sqlInputKereta = "insert into kereta value('".$no_ka."','".$nama."','".$tujuan."','".$kelas."','".$datang."','".$berangkat."')";
 		if ($conn->query($sqlInputKereta)===TRUE) {
 			echo "<script>window.alert('Data Tersimpan');
 			window.location=('home.php?r=input_kereta')</script>";
@@ -75,12 +75,12 @@ if ($ip=='input_kereta') {
 }
 if ($ip=='edit_kereta') {
 	// $no = $_POST['no'];
-	$nis = $_POST['nis'];
+	$no_ka = $_POST['no_ka'];
 	$nama = $_POST['nama'];
 	$nama = $conn->real_escape_string($nama);
 	$tujuan = $_POST['tujuan'];
 	$kelas = $_POST['kelas'];
-	$sql = "update kereta set nama = '".$nama."', tujuan = '".$tujuan."', kelas = '".$kelas."' WHERE nis = '".$nis."'";
+	$sql = "update kereta set nama = '".$nama."', tujuan = '".$tujuan."', kelas = '".$kelas."' WHERE no_ka = '".$no_ka."'";
 	if ($conn->query($sql)===TRUE) {
 		echo "<script>window.alert('Data Edit Kereta Tersimpan');
         window.location=('home.php?r=data_kereta')</script>";
@@ -91,7 +91,7 @@ if ($ip=='edit_kereta') {
 }
 if ($ip=='input_keterlambatan') {
 	$var = $_POST['tgl'];
-	$nis = $_POST['nistelat'];
+	$no_ka = $_POST['no_katelat'];
 	$kedatangan = $_POST['kedatangan'];
 	$keberangkatan = $_POST['keberangkatan'];
 	$real_kedatangan = $_POST['real_datang'];
@@ -100,14 +100,14 @@ if ($ip=='input_keterlambatan') {
 	$alasan = $conn->real_escape_string($alasan);
 	$tgl = str_replace('/', '-', $var);
 	$date = date('Y-m-d', strtotime($tgl));
-	$nisi = explode(',', $nis);
+	$no_kai = explode(',', $no_ka);
 
 	$datang = strtotime($real_kedatangan) - strtotime($kedatangan);
 	$lama_datang = floor($datang / 60);
 	$berangkat = strtotime($real_keberangkatan) - strtotime($keberangkatan);
 	$lama_berangkat = floor($berangkat / 60);
 
-	$sqltransaksi = "insert into transaksitelat value(NULL,'".$nisi[0]."','".$date."','".$real_kedatangan."','".$real_keberangkatan."','".$lama_datang."','".$lama_berangkat."','".$alasan."')";
+	$sqltransaksi = "insert into transaksitelat value(NULL,'".$no_kai[0]."','".$date."','".$real_kedatangan."','".$real_keberangkatan."','".$lama_datang."','".$lama_berangkat."','".$alasan."')";
 	if ($conn->query($sqltransaksi)===TRUE) {
 
 		function alertWindow($ld,$lb) {
@@ -129,7 +129,7 @@ if ($ip=='input_keterlambatan') {
 if ($ip=='edit_keterlambatan') {
 	$id = $_POST['id'];
 	$var = $_POST['tgl'];
-	$nis = $_POST['nistelat'];
+	$no_ka = $_POST['no_katelat'];
 	// $lama = $_POST['lamatelat'];
 	$kedatangan = $_POST['kedatangan'];
 	$keberangkatan = $_POST['keberangkatan'];
@@ -139,7 +139,7 @@ if ($ip=='edit_keterlambatan') {
 	$alasan = $conn->real_escape_string($alasan);
 	$tgl = str_replace('/', '-', $var);
 	$date = date('Y-m-d', strtotime($tgl));
-	$nisi = explode(',', $nis);
+	$no_kai = explode(',', $no_ka);
 
 	$datang = strtotime($real_kedatangan) - strtotime($kedatangan);
 	$lama_datang = floor($datang / 60);
@@ -226,7 +226,7 @@ if ($ip=='edit_admin') {
 if ($ip=='update_kelas') {
 	$kelas = $_POST['kelas'];
 	foreach ($_POST['naik'] as $naik) {
-		$updateKelas = "update kereta set kelas = '".$kelas."' where nis ='".$naik."'";
+		$updateKelas = "update kereta set kelas = '".$kelas."' where no_ka ='".$naik."'";
 		if ($conn->query($updateKelas)===TRUE) {
 		}
 		else{

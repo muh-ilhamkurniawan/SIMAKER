@@ -20,16 +20,16 @@
                       <?php   
                               $con = mysqli_connect("localhost","root","","kai_keterlambatan");  
                           ?>  
-                        <label for="nistelat">No KA</label>
-                        <input type="text" class="form-control" id="nistelat" name="nistelat"  placeholder="No KA" onkeyup="this.value = this.value.toUpperCase()"  onchange='changeValue(this.value)' required>
+                        <label for="no_katelat">No KA</label>
+                        <input type="text" class="form-control" id="no_katelat" name="no_katelat"  placeholder="No KA" onkeyup="this.value = this.value.toUpperCase()"  onchange='changeValue(this.value)' required>
                         <?php   
-                              $query = mysqli_query($con, "select * from kereta order by nis esc");  
+                              $query = mysqli_query($con, "select * from kereta order by no_ka esc");  
                               $result = mysqli_query($con, "select * from kereta");  
                               $a          = "var kedatangan = new Array();\n;";  
                               $b          = "var keberangkatan = new Array();\n;";  
                               while ($row = mysqli_fetch_array($result)) {  
-                              $a .= "kedatangan['" . $row['nis'] . "'] = {kedatangan:'" . addslashes($row['kedatangan'])."'};\n";  
-                              $b .= "keberangkatan['" . $row['nis'] . "'] = {keberangkatan:'" . addslashes($row['keberangkatan'])."'};\n";  
+                              $a .= "kedatangan['" . $row['no_ka'] . "'] = {kedatangan:'" . addslashes($row['kedatangan'])."'};\n";  
+                              $b .= "keberangkatan['" . $row['no_ka'] . "'] = {keberangkatan:'" . addslashes($row['keberangkatan'])."'};\n";  
                               }  
                               ?> 
                       </div>
@@ -53,7 +53,7 @@
                           </script> 
                       </div>
                       <div class="form-group" style="text-align:center;">
-                        <label for="nistelat" >Realisasi</label>
+                        <label for="no_katelat" >Realisasi</label>
                       </div>
                       <div class="form-row">
                           <div class="col-md-6 mb-3">
@@ -91,13 +91,13 @@
                         </thead>
                         <tbody>
                         <?php
-                            $sqlkereta = "select nis,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by nis asc limit 8";
+                            $sqlkereta = "select no_ka,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by no_ka asc limit 8";
                             $resultkereta = $conn->query($sqlkereta);
                             if ($resultkereta->num_rows>0) {
                                 while ($row = $resultkereta->fetch_assoc()) {
                                     ?>
                                     <tr>
-                                    <td><?php echo $row['nis'];?></td>
+                                    <td><?php echo $row['no_ka'];?></td>
                                         <td><?php echo $row['nama'];?></td>
                                         <td><?php echo $row['tujuan'];?></td>
                                     </tr><?php

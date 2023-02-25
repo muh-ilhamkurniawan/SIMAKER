@@ -117,7 +117,7 @@
     </script>
     <script>
       $(function() {
-        $( "#nistelat" ).autocomplete({
+        $( "#no_katelat" ).autocomplete({
           source: 'search.php',
         });
     });

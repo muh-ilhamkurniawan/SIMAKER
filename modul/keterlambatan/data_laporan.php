@@ -41,10 +41,10 @@
                             $sqlkeretatelat = "";
                             $ab = 1;
                             if ($kelas=="semua") {
-                                $sqlkeretatelat = "select distinct transaksitelat.nis, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan from transaksitelat join kereta on transaksitelat.nis = kereta.nis where transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.nis asc";
+                                $sqlkeretatelat = "select distinct transaksitelat.no_ka, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan from transaksitelat join kereta on transaksitelat.no_ka = kereta.no_ka where transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.no_ka asc";
                             }
                             else{
-                                $sqlkeretatelat = "select distinct transaksitelat.nis, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan from transaksitelat join kereta on transaksitelat.nis = kereta.nis where kereta.kelas = '".$kelas."' and transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.nis asc";
+                                $sqlkeretatelat = "select distinct transaksitelat.no_ka, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan from transaksitelat join kereta on transaksitelat.no_ka = kereta.no_ka where kereta.kelas = '".$kelas."' and transaksitelat.tanggal between '".$date1."' and '".$date2."' order by transaksitelat.no_ka asc";
                             }
                             $resultkeretatelat = $conn->query($sqlkeretatelat);
                             if ($resultkeretatelat->num_rows>0) {
@@ -52,19 +52,19 @@
                                     ?>
                                     <tr>
                                         <td><?php echo $ab;?></td>
-                                        <td><?php echo $row['nis'];?></td>
+                                        <td><?php echo $row['no_ka'];?></td>
                                         <td><?php echo $row['nama'];?></td>
                                         <td><?php echo $row['kelas'];?></td>
                                         <td>
                                             <?php
-                                            $resultcount = $conn->query("select count(nis) as total from transaksitelat where nis = '".$row['nis']."' and tanggal between '".$date1."' and '".$date2."'");
+                                            $resultcount = $conn->query("select count(no_ka) as total from transaksitelat where no_ka = '".$row['no_ka']."' and tanggal between '".$date1."' and '".$date2."'");
                                             $totalcount = $resultcount->fetch_assoc();
                                             echo $totalcount['total'];
                                             ?>
                                         </td>
                                         <td>
                                             <?php
-                                            $resultsum = $conn->query("select sum(lama_datang) as jumlah from transaksitelat where nis = '".$row['nis']."' and tanggal between '".$date1."' and '".$date2."'");
+                                            $resultsum = $conn->query("select sum(lama_datang) as jumlah from transaksitelat where no_ka = '".$row['no_ka']."' and tanggal between '".$date1."' and '".$date2."'");
                                             $totalsum = $resultsum->fetch_assoc();
                                             echo $totalsum['jumlah'];
                                             echo " menit";
@@ -72,13 +72,13 @@
                                         </td>
                                         <td>
                                             <?php
-                                            $resultsum = $conn->query("select sum(lama_berangkat) as jumlah from transaksitelat where nis = '".$row['nis']."' and tanggal between '".$date1."' and '".$date2."'");
+                                            $resultsum = $conn->query("select sum(lama_berangkat) as jumlah from transaksitelat where no_ka = '".$row['no_ka']."' and tanggal between '".$date1."' and '".$date2."'");
                                             $totalsum = $resultsum->fetch_assoc();
                                             echo $totalsum['jumlah'];
                                             echo " menit";
                                             ?>
                                         </td>
-                                        <td><a href="././home.php?r=detail_keterlambatan&nis=<?php echo $row['nis'];?>&nama=<?php echo $row['nama'];?>&kelas=<?php echo $row['kelas'];?>&kedatangan=<?php echo $row['kedatangan'];?>&keberangkatan=<?php echo $row['keberangkatan'];?>&tgl1=<?php echo $date1;?>&tgl2=<?php echo $date2;?>" class="btn btn-primary">Detail</a></td>
+                                        <td><a href="././home.php?r=detail_keterlambatan&no_ka=<?php echo $row['no_ka'];?>&nama=<?php echo $row['nama'];?>&kelas=<?php echo $row['kelas'];?>&kedatangan=<?php echo $row['kedatangan'];?>&keberangkatan=<?php echo $row['keberangkatan'];?>&tgl1=<?php echo $date1;?>&tgl2=<?php echo $date2;?>" class="btn btn-primary">Detail</a></td>
                                     </tr><?php $ab++;
                                 }
                             }

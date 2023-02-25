@@ -3,7 +3,7 @@
           <div class="row justify-content-center">
             <div class="col-12">
             <?php
-                $nis = $conn->real_escape_string($_GET['nis']);
+                $no_ka = $conn->real_escape_string($_GET['no_ka']);
                 $nama = $conn->real_escape_string($_GET['nama']);
                 $kelas = $conn->real_escape_string($_GET['kelas']);
                 $kedatangan = $conn->real_escape_string($_GET['kedatangan']);
@@ -12,7 +12,7 @@
                 $tgl2 = $conn->real_escape_string($_GET['tgl2']);
                 ?>
               <h2 class="mb-2 page-title">Detail Laporan Keterlambatan Kereta</h2>
-              <p class="card-text">Lihat Data Keterlambat <?php echo $kelas;?> <?php echo $nama;?>-<?php echo $nis;?><br>Kedatangan: <?php echo $kedatangan;?> - Keberangkatan: <?php echo $keberangkatan;?> <br/> Dari <?php echo $tgl1;?> Sampai <?php echo $tgl2;?>
+              <p class="card-text">Lihat Data Keterlambat <?php echo $kelas;?> <?php echo $nama;?>-<?php echo $no_ka;?><br>Kedatangan: <?php echo $kedatangan;?> - Keberangkatan: <?php echo $keberangkatan;?> <br/> Dari <?php echo $tgl1;?> Sampai <?php echo $tgl2;?>
               </p>
               <a href="home.php?r=keterlambatan" class="btn btn-danger">Kembali</a>
               <div class="row my-4">
@@ -36,7 +36,7 @@
                         </thead>
                         <tbody>
                         <?php
-                            $sqldetail = "select distinct transaksitelat.nis,transaksitelat.id, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan,transaksitelat.tanggal,transaksitelat.lama_datang,transaksitelat.lama_berangkat,transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join kereta on transaksitelat.nis = kereta.nis where transaksitelat.nis ='".$nis."' and transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
+                            $sqldetail = "select distinct transaksitelat.no_ka,transaksitelat.id, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan,transaksitelat.tanggal,transaksitelat.lama_datang,transaksitelat.lama_berangkat,transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join kereta on transaksitelat.no_ka = kereta.no_ka where transaksitelat.no_ka ='".$no_ka."' and transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
                             $resultDetail = $conn->query($sqldetail);
                             if ($resultDetail->num_rows>0) {
                                 while ($rowDetail=$resultDetail->fetch_assoc()) {

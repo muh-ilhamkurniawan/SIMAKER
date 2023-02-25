@@ -10,7 +10,7 @@
                     <form method="post" action="././simpan.php?ip=input_kereta">
                       <div class="form-group">
                         <label for="inputAddress">No KA</label>
-                        <input type="text" class="form-control" id="nis" name="nis" placeholder="No KA" onkeyup="this.value = this.value.toUpperCase()" required>
+                        <input type="text" class="form-control" id="no_ka" name="no_ka" placeholder="No KA" onkeyup="this.value = this.value.toUpperCase()" required>
                       </div>
                       <div class="form-group">
                         <label for="inputAddress">Nama KA</label>

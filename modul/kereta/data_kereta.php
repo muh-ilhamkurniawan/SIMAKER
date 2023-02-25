@@ -33,28 +33,28 @@
                             $kelas = $_POST['kelas'];
                             $sqlkereta = "";
                             if ($kelas=="semua") {
-                                $sqlkereta = "select nis,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by nis asc";
+                                $sqlkereta = "select no_ka,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by no_ka asc";
                             }
                             else{
-                                $sqlkereta = "select nis,nama,tujuan,kelas,kedatangan,keberangkatan from kereta where kelas = '".$kelas."' order by nis asc";
+                                $sqlkereta = "select no_ka,nama,tujuan,kelas,kedatangan,keberangkatan from kereta where kelas = '".$kelas."' order by no_ka asc";
                             }
                             $no = 1;
                             $resultkereta = $conn->query($sqlkereta);
                             if ($resultkereta->num_rows>0) {
                                 while ($row = $resultkereta->fetch_assoc()) {
-                                    $nis_kereta = $row['nis'];
+                                    $no_ka_kereta = $row['no_ka'];
                                     $nama_kereta = $row['nama'];
                                     ?>
                                     <tr>
                                         <td><?php echo $no;?></td>
-                                        <td><?php echo $row['nis'];?></td>
+                                        <td><?php echo $row['no_ka'];?></td>
                                         <td><?php echo $nama_kereta;?></td>
                                         <td><?php echo $row['tujuan'];?></td>
                                         <td><?php echo $row['kelas'];?></td>
                                         <td><?php echo $row['kedatangan'];?></td>
                                         <td><?php echo $row['keberangkatan'];?></td>
-                                        <td><a href="home.php?r=edit_kereta&id=<?php echo $row['nis'];?>" class="btn btn-primary">Edit</a></td>
-                                        <td><a href="././hapus.php?k=hapus_kereta&id=<?php echo $row['nis'];?>" onclick="return confirm('Yakin Hapus Kereta \'<?php echo $nama_kereta;?>-<?php echo $nis_kereta;?>\'?')" class="btn btn-danger">Hapus</a></td>
+                                        <td><a href="home.php?r=edit_kereta&id=<?php echo $row['no_ka'];?>" class="btn btn-primary">Edit</a></td>
+                                        <td><a href="././hapus.php?k=hapus_kereta&id=<?php echo $row['no_ka'];?>" onclick="return confirm('Yakin Hapus Kereta \'<?php echo $nama_kereta;?>-<?php echo $no_ka_kereta;?>\'?')" class="btn btn-danger">Hapus</a></td>
                                         <?php
                                     $no++;
                                      ?>

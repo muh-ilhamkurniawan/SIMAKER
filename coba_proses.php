@@ -32,13 +32,13 @@ if(isset($_FILES['berkas_excel']['name']) && in_array($_FILES['berkas_excel']['t
     $sheetData = $spreadsheet->getActiveSheet()->toArray();
 	for($i = 1;$i < count($sheetData);$i++)
 	{
-        $nis = $sheetData[$i]['1'];
+        $no_ka = $sheetData[$i]['1'];
         $nama = $sheetData[$i]['2'];
         $tujuan = $sheetData[$i]['3'];
         $kelas = $sheetData[$i]['4'];
         $kedatangan = $sheetData[$i]['5'];
         $keberangkatan = $sheetData[$i]['6'];
-        mysqli_query($koneksi,"insert into kereta values ('$nis','$nama','$tujuan','$kelas','$kedatangan','$keberangkatan')");
+        mysqli_query($koneksi,"insert into kereta values ('$no_ka','$nama','$tujuan','$kelas','$kedatangan','$keberangkatan')");
     }
     echo '<script>alert("Berhasil mengimport data."); document.location="home.php?r=import_kereta";</script>';
     // header("Location: home.php?r=import_kereta"); 

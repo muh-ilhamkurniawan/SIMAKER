@@ -19,7 +19,7 @@
                           <p class="small text-muted mb-0">Total Kereta</p>
                           <span class="h3 mb-0">
                           <?php
-                            $resultcount = $conn->query("select count(nis) as total from kereta");
+                            $resultcount = $conn->query("select count(no_ka) as total from kereta");
                             $totalcount = $resultcount->fetch_assoc();
                             echo $totalcount['total'];
                             ?>
@@ -67,7 +67,7 @@
                             <div class="col-auto">
                               <span class="h3 mr-2 mb-0">
                               <?php
-                                $resultcount = $conn->query("select count(nis) as total from transaksitelat");
+                                $resultcount = $conn->query("select count(no_ka) as total from transaksitelat");
                                 $totalcount = $resultcount->fetch_assoc();
                                 echo $totalcount['total'];
                                 ?>
@@ -121,7 +121,7 @@
                     </thead>
                     <tbody>
                     <?php
-                            $sqldetail = "select distinct transaksitelat.nis,transaksitelat.id, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan,transaksitelat.tanggal,transaksitelat.lama_datang,transaksitelat.lama_berangkat,transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join kereta on transaksitelat.nis = kereta.nis order by transaksitelat.id desc limit 5";
+                            $sqldetail = "select distinct transaksitelat.no_ka,transaksitelat.id, kereta.nama,kereta.kelas, kereta.kedatangan, kereta.keberangkatan,transaksitelat.tanggal,transaksitelat.lama_datang,transaksitelat.lama_berangkat,transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join kereta on transaksitelat.no_ka = kereta.no_ka order by transaksitelat.id desc limit 5";
                             $resultDetail = $conn->query($sqldetail);
                             if ($resultDetail->num_rows>0) {
                                 while ($rowDetail=$resultDetail->fetch_assoc()) {

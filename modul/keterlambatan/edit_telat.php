@@ -28,12 +28,12 @@
                       </div>
                       <div class="form-group"> 
                       <?php
-                          $sqljadwal = "select nama, kedatangan, keberangkatan from kereta where nis = '".$show['nis']."'";
+                          $sqljadwal = "select nama, kedatangan, keberangkatan from kereta where no_ka = '".$show['no_ka']."'";
                           $hasiljadwal = $conn->query($sqljadwal);
                           $showjdw = $hasiljadwal->fetch_assoc();
                     ?>
-                        <label for="nistelat">No KA</label>
-                        <input type="text" class="form-control" id="nistelat" name="nistelat"  placeholder="No KA" value="<?php echo $showjdw['nama'];?>-<?php echo $show['nis'];?>" onchange='changeValue(this.value)' readonly>
+                        <label for="no_katelat">No KA</label>
+                        <input type="text" class="form-control" id="no_katelat" name="no_katelat"  placeholder="No KA" value="<?php echo $showjdw['nama'];?>-<?php echo $show['no_ka'];?>" onchange='changeValue(this.value)' readonly>
                       </div>
                       <div class="form-row">
                           <div class="col-md-6 mb-3">
@@ -46,7 +46,7 @@
                           </div>
                       </div>
                       <div class="form-group" style="text-align:center;">
-                        <label for="nistelat" >Realisasi</label>
+                        <label for="no_katelat" >Realisasi</label>
                       </div>
                       <div class="form-row">
                           <div class="col-md-6 mb-3">
@@ -97,13 +97,13 @@
                         </thead>
                         <tbody>
                         <?php
-                            $sqlkereta = "select nis,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by nis asc";
+                            $sqlkereta = "select no_ka,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by no_ka asc";
                             $resultkereta = $conn->query($sqlkereta);
                             if ($resultkereta->num_rows>0) {
                                 while ($row = $resultkereta->fetch_assoc()) {
                                     ?>
                                     <tr>
-                                    <td><?php echo $row['nis'];?></td>
+                                    <td><?php echo $row['no_ka'];?></td>
                                         <td><?php echo $row['nama'];?></td>
                                         <td><?php echo $row['tujuan'];?></td>
                                     </tr><?php

@@ -8,15 +8,15 @@ if ($key=='export_transaksi') {
 	$hari = date("d-m-Y");
 	$sqlkeretatelat = "";
     if ($kelas=="semua") {
-        $sqlkeretatelat = "select transaksitelat.nis,transaksitelat.lama_datang, transaksitelat.lama_berangkat, kereta.nama,kereta.kelas,transaksitelat.tanggal, kereta.kedatangan, kereta.keberangkatan, transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join kereta on transaksitelat.nis = kereta.nis where transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
+        $sqlkeretatelat = "select transaksitelat.no_ka,transaksitelat.lama_datang, transaksitelat.lama_berangkat, kereta.nama,kereta.kelas,transaksitelat.tanggal, kereta.kedatangan, kereta.keberangkatan, transaksitelat.kedatangan as real_datang, transaksitelat.keberangkatan as real_berangkat, transaksitelat.alasan from transaksitelat join kereta on transaksitelat.no_ka = kereta.no_ka where transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
     }
     else{
-        $sqlkeretatelat = "select transaksitelat.nis, kereta.nama,kereta.kelas,transaksitelat.tanggal,transaksitelat.alasan from transaksitelat join kereta on transaksitelat.nis = kereta.nis where kereta.kelas = '".$kelas."' and transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
+        $sqlkeretatelat = "select transaksitelat.no_ka, kereta.nama,kereta.kelas,transaksitelat.tanggal,transaksitelat.alasan from transaksitelat join kereta on transaksitelat.no_ka = kereta.no_ka where kereta.kelas = '".$kelas."' and transaksitelat.tanggal between '".$tgl1."' and '".$tgl2."' order by transaksitelat.id asc";
     }
     // Fungsi header dengan mengirimkan raw data excel
 	header("Content-type: application/vnd-ms-excel");
  
-	// Mendefinisikan nama file ekspor "hasil-export.xls"
+	// Mendefino_kaikan nama file ekspor "hasil-export.xls"
 	header("Content-Disposition: attachment; filename=Data Keterlambatan Kereta $tgl1 sampai $tgl2.xls");
 	?>
 	<table bordered="1">
@@ -45,7 +45,7 @@ if ($key=='export_transaksi') {
                 ?>
                 <tr>
                     <td><?php echo $ab;?></td>
-                    <td><?php echo $row['nis'];?></td>
+                    <td><?php echo $row['no_ka'];?></td>
                     <td><?php echo $row['nama'];?></td>
                     <td><?php echo $row['kelas'];?></td>
                     <td><?php
