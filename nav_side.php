@@ -31,10 +31,14 @@
         <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
           <i class="fe fe-x"><span class="sr-only"></span></i>
         </a>
-        <nav class="vertnav navbar navbar-light">
-          <!-- nav bar -->
+        <nav class="vertnav navbar navbar-light">       
+          <!-- <a class="navbar-brand mx-auto mt-2 flex-fill text-center nav-heading" href="home.php?r=beranda" id="logo">
+                <span class="" style="" >
+                  <img src="./assets/images/kai.svg" alt="...">
+                </span>
+              </a>  -->
           <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="home.php?r=beranda" id="logo">
-              <span class="avatar avatar-sm mt-2">
+              <span class="avatar avatar-sm mt-2" >
                 <img src="./assets/images/kai.svg" alt="...">
               </span>
             </a>
@@ -117,7 +121,7 @@
           </p>
           <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
-              <a class="nav-link" href="../docs/index.php">
+              <a class="nav-link" href="#">
                 <i class="fe fe-help-circle fe-16"></i>
                 <span class="ml-3 item-text">Getting Start</span>
               </a>

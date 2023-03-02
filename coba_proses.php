@@ -40,7 +40,7 @@ if(isset($_FILES['berkas_excel']['name']) && in_array($_FILES['berkas_excel']['t
         $keberangkatan = $sheetData[$i]['6'];
         mysqli_query($koneksi,"insert into kereta values ('$no_ka','$nama','$tujuan','$kelas','$kedatangan','$keberangkatan')");
     }
-    echo '<script>alert("Berhasil mengimport data."); document.location="home.php?r=import_kereta";</script>';
-    // header("Location: home.php?r=import_kereta"); 
+    echo '<script>alert("Berhasil mengimport data."); 
+    document.location="home.php?r=data_kereta_kategori&kelas=semua";</script>';
 }
 ?>

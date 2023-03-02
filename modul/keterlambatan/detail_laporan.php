@@ -15,6 +15,8 @@
               <p class="card-text">Lihat Data Keterlambat <?php echo $kelas;?> <?php echo $nama;?>-<?php echo $no_ka;?><br>Kedatangan: <?php echo $kedatangan;?> - Keberangkatan: <?php echo $keberangkatan;?> <br/> Dari <?php echo $tgl1;?> Sampai <?php echo $tgl2;?>
               </p>
               <a href="home.php?r=keterlambatan" class="btn btn-danger">Kembali</a>
+              <!-- <a href="././hapus.php?k=hapus_detail_semua&no_ka=<?php echo $no_ka;?>&tgl1=<?php echo $tgl1;?>tgl2=<?php echo $tgl2;?>" onclick="return confirm('Yakin Hapus Semua Data?')" class="btn btn-danger float-right">Hapus Semua data</a> -->
+
               <div class="row my-4">
                 <!-- Small table -->
                 <div class="col-md-12">

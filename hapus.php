@@ -10,7 +10,7 @@ if ($key=='hapus_kereta') {
 	$sqlhapus = "delete from kereta where no_ka ='".$no_ka."'";
 	if ($conn->query($sqlhapus)===TRUE) {
 		echo "<script>window.alert('Data Kereta Terhapus');
-        window.location=('home.php?r=data_kereta')</script>";
+        window.location=('home.php?r=data_kereta_kategori&kelas=semua')</script>";
 	}
 	else{
 		echo "error".$conn->error;
@@ -34,6 +34,19 @@ if ($key=='hapus_detail') {
 	$sqlHapusDetail = "delete from transaksitelat where id ='".$idTelat."'";
 	if ($conn->query($sqlHapusDetail)===TRUE) {
 		echo "<script>window.alert('Data Terhapus');
+        window.location=('home.php?r=keterlambatan')</script>";
+	}
+	else{
+		echo "error".$conn->error;
+	}
+}
+if($key=='hapus_detail_semua'){
+	$no_ka = $_GET['no_ka'];
+	$tgl1 = $_GET['tgl1'];
+	$tgl2 = $_GET['tgl2'];
+	$sqlHapusSemuaLog = "delete from transaksitelat where no_ka ='".$no_ka."' and tanggal between '".$tgl1."' and '".$tgl2."'";
+	if ($conn->query($sqlHapusSemuaLog)===TRUE) {
+		echo "<script>window.alert('Semua Laporan Keterlambatan Berhasil di Hapus');
         window.location=('home.php?r=keterlambatan')</script>";
 	}
 	else{

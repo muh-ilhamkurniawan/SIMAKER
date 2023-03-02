@@ -37,7 +37,7 @@
                                         <td><?php echo $row['username'];?></td>
                                         <td><?php echo $level;?></td>
                                         <td><?php echo $row['nama'];?></td>
-                                        <td><a href="edit_pengguna.php?id=<?php echo $row['id_admin'];?>" class="btn btn-primary">Edit</a></td>
+                                        <td><a href="././home.php?r=edit_pengguna&id=<?php echo $row['id_admin'];?>" class="btn btn-primary">Edit</a></td>
                                         <td><a href="././hapus.php?k=hapus_pengguna&id=<?php echo $row['id_admin']?>" onclick="return confirm('Yakin Hapus Pengguna \'<?php echo $user;?>\'?')"  class="btn btn-danger">Hapus</a></td>
                                     </tr>
                                     <?php

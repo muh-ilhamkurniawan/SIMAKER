@@ -2,12 +2,17 @@
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12">
-              <h2 class="mb-2 page-title">Data Kereta</h2>
-              <p class="card-text">Lihat Data Kereta. </p>
-              <?php
-                        $kelas = $_POST['kelas']; 
+                  <?php
+                      if (empty($_POST['kelas'])) {
+                          $kelas = $_GET['kelas']; 
+                        }
+                      else {
+                          $kelas = $_POST['kelas'];
+                        }
                         ?>
-              <a href="kereta.php" class="btn btn-danger">Kembali</a>
+              <h2 class="mb-2 page-title">Data Kereta</h2>
+              <p class="card-text">Lihat Data <?php echo $kelas ?> </p>
+              <a href="home.php?r=data_kereta" class="btn btn-danger">Kembali</a>
               <div class="row my-4">
                 <!-- Small table -->
                 <div class="col-md-12">
@@ -30,7 +35,6 @@
                         </thead>
                         <tbody>
                         <?php
-                            $kelas = $_POST['kelas'];
                             $sqlkereta = "";
                             if ($kelas=="semua") {
                                 $sqlkereta = "select no_ka,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by no_ka asc";

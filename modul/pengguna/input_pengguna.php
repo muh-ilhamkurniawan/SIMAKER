@@ -22,6 +22,20 @@
                         <label for="inputAddress">Password</label>
                         <input type="password" class="form-control" id="password" name="password"placeholder="password" required>
                       </div>
+                      <div class="checkbox mb-3">
+                        <label>
+                          <input type="checkbox" onclick="myFunction()"> Tampilkan Password
+                            <script>
+                              function myFunction() {
+                                var x = document.getElementById("password");
+                                if (x.type === "password") {
+                                  x.type = "text";
+                                } else {
+                                  x.type = "password";
+                                }
+                              }
+                            </script>
+                      </div>
                       <div class="form-group">
                         <label for="inputAddress2">Level</label>
                         <select id="level" class="form-control" name="level" required>

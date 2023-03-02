@@ -32,6 +32,20 @@
                         <label for="inputAddress">Password</label>
                         <input type="password" class="form-control" id="inputAddress" placeholder="password baru" required>
                       </div>
+                      <div class="checkbox mb-3">
+                        <label>
+                          <input type="checkbox" onclick="myFunction()"> Tampilkan Password
+                            <script>
+                              function myFunction() {
+                                var x = document.getElementById("password");
+                                if (x.type === "password") {
+                                  x.type = "text";
+                                } else {
+                                  x.type = "password";
+                                }
+                              }
+                            </script>
+                      </div>
                       <div class="form-group">
                         <label for="inputAddress2">Level</label>
                         <select id="level" class="form-control" name="level">
@@ -49,7 +63,7 @@
 
                         </select>
                       </div>
-                      <a href="data_pengguna.php" class="btn btn-danger">Kembali</a>
+                      <a href="home.php?r=data_pengguna" class="btn btn-danger">Kembali</a>
                       <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>
                   </div>

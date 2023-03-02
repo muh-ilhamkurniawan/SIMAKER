@@ -14,7 +14,7 @@ if ($ip=="input_kategori") {
         $sql = "insert into kelas (kode_kelas,nama_kelas) values(NULL,'".$kelas."')";
 		if ($conn->query($sql)===TRUE) {
 			echo "<script>window.alert('Data Tersimpan');
-			window.location=('home.php?r=input_kategori')</script>";
+			window.location=('home.php?r=data_kategori')</script>";
 		}
 		else{
 			echo "error".$conn->error;
@@ -63,7 +63,7 @@ if ($ip=='input_kereta') {
 		$sqlInputKereta = "insert into kereta value('".$no_ka."','".$nama."','".$tujuan."','".$kelas."','".$datang."','".$berangkat."')";
 		if ($conn->query($sqlInputKereta)===TRUE) {
 			echo "<script>window.alert('Data Tersimpan');
-			window.location=('home.php?r=input_kereta')</script>";
+			window.location=('home.php?r=data_kereta_kategori&kelas=semua')</script>";
 		}
 		else{
 			echo "<script>window.alert('eror ".$conn->error."');
@@ -74,7 +74,6 @@ if ($ip=='input_kereta') {
 
 }
 if ($ip=='edit_kereta') {
-	// $no = $_POST['no'];
 	$no_ka = $_POST['no_ka'];
 	$nama = $_POST['nama'];
 	$nama = $conn->real_escape_string($nama);
@@ -130,7 +129,6 @@ if ($ip=='edit_keterlambatan') {
 	$id = $_POST['id'];
 	$var = $_POST['tgl'];
 	$no_ka = $_POST['no_katelat'];
-	// $lama = $_POST['lamatelat'];
 	$kedatangan = $_POST['kedatangan'];
 	$keberangkatan = $_POST['keberangkatan'];
 	$real_kedatangan = $_POST['real_datang'];
@@ -182,7 +180,7 @@ if ($ip =='input_pengguna') {
 		$sqlAdmin = "insert into admin value(NULL,'".$username."','".$password."','".$level."','".$nama."')";
 		if ($conn->query($sqlAdmin)===TRUE) {
 			echo "<script>window.alert('Data Tersimpan');
-			window.location=('home.php?r=input_pengguna')</script>";
+			window.location=('home.php?r=data_pengguna')</script>";
 		}
 		else{
 			echo "<script>window.alert('eror ".$conn->error."');

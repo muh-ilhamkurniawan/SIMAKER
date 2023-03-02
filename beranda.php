@@ -169,7 +169,7 @@
                           </div>
                           <div class="row mb-4">
                             <div class="col-md-7">
-                              <p class="text-muted">Sistem Informasi Manajamen Keterlambatan Kereta Api merupakan sebuah sistem informasi berbasis website yang berfunsgi untuk mencatat, mengedit, serta melihat laporan keterlambatan kereta api di wilayah Daop 5 Purwokerto, khususnya pada stasiun Kutoarjo. </p>
+                              <p class="text-muted">Sistem Informasi Manajamen Keterlambatan Kereta Api merupakan sebuah sistem informasi berbasis website yang berfungsi untuk mencatat, mengedit, serta melihat laporan keterlambatan kereta api di wilayah Daop 5 Purwokerto, khususnya pada stasiun Kutoarjo. </p>
                             </div>
                             <div class="col">
                               <p class="small mb-0 text-muted">PT Kereta Api Indonesia(Persero)</p>
@@ -179,7 +179,7 @@
                           </div>
                           <div class="row align-items-center">
                             <div class="col-md-7 mb-2">
-                              <span class="small text-muted mb-0">Dibuat sebagai hasil kerja praktek </br>Mahakereta Informatika Universitas Jendral Soedirman </br> @2023</span>
+                              <span class="small text-muted mb-0">Dibuat sebagai hasil kerja praktek </br>Mahasiswa Informatika Universitas Jendral Soedirman </br> @2023</span>
                             </div>
                             <div class="col mb-2">
                               <button type="button" class="btn btn-primary">Unduh Panduan</button>
