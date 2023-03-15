@@ -91,7 +91,7 @@
                         </thead>
                         <tbody>
                         <?php
-                            $sqlkereta = "select no_ka,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by no_ka asc limit 8";
+                            $sqlkereta = "select no_ka,nama,tujuan,kelas,kedatangan,keberangkatan from kereta order by no_ka asc";
                             $resultkereta = $conn->query($sqlkereta);
                             if ($resultkereta->num_rows>0) {
                                 while ($row = $resultkereta->fetch_assoc()) {

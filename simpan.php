@@ -66,7 +66,7 @@ if ($ip=='input_kereta') {
 			window.location=('home.php?r=data_kereta_kategori&kelas=semua')</script>";
 		}
 		else{
-			echo "<script>window.alert('eror ".$conn->error."');
+			echo "<script>window.alert('error ".$conn->error."');
 			window.location=('home.php?r=input_kereta')</script>";
 		}
     }
@@ -81,7 +81,7 @@ if ($ip=='edit_kereta') {
 	$kelas = $_POST['kelas'];
 	$sql = "update kereta set nama = '".$nama."', tujuan = '".$tujuan."', kelas = '".$kelas."' WHERE no_ka = '".$no_ka."'";
 	if ($conn->query($sql)===TRUE) {
-		echo "<script>window.alert('Data Edit Kereta Tersimpan');
+		echo "<script>window.alert('Data Berhasl Diperbarui');
         window.location=('home.php?r=data_kereta')</script>";
 	}
 	else{
@@ -201,8 +201,8 @@ if ($ip=='edit_admin') {
 	if ($password==NULL) {
 		$sql = "update admin set username = '".$username."', level = '".$level."', nama = '".$nama."' WHERE id_admin = '".$id_admin."'";
 		if ($conn->query($sql)===TRUE) {
-			echo "<script>window.alert('Data Edit Pengguna Tersimpan');
-			window.location=('home.php?r=lihat_admin')</script>";
+			echo "<script>window.alert('Data Berhasil Diperbarui');
+			window.location=('home.php?r=data_pengguna')</script>";
 		}
 		else{
 			echo "error".$conn->error;
@@ -212,8 +212,8 @@ if ($ip=='edit_admin') {
 		$password = md5($password);
 		$sql = "update admin set username = '".$username."', password = '".$password."', level = '".$level."', nama = '".$nama."' WHERE id_admin = '".$id_admin."'";
 		if ($conn->query($sql)===TRUE) {
-			echo "<script>window.alert('Data Edit Pengguna Tersimpan');
-			window.location=('home.php?r=lihat_admin')</script>";
+			echo "<script>window.alert('Data Berhasil Diperbarui');
+			window.location=('home.php?r=data_pengguna')</script>";
 		}
 		else{
 			echo "error".$conn->error;

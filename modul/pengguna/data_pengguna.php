@@ -15,7 +15,7 @@
                       <table class="table datatables" id="dataTable-1">
                         <thead>
                           <tr>
-                                <th>Id Pengguna</th>
+                                <th>ID Pengguna</th>
                                 <th>Username</th>
                                 <th>Level</th>
                                 <th>Nama</th>

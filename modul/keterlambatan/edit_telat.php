@@ -75,8 +75,8 @@
                         <label or="alasan">Keterangan</label>
                         <textarea class="form-control" id="alasan" name="alasan" onkeyup="this.value = this.value.toUpperCase()" placeholder="keterangan" required><?php echo $show['alasan'];?></textarea>
                       </div>
-                      <button type="submit" class="btn btn-primary">Tambah</button>
-                    </form>
+                      <button type="submit" class="btn btn-primary">Perbarui</button>
+                  </form>
                   </div>
                 </div>
               </div> <!-- / .card-desk-->

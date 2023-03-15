@@ -15,22 +15,22 @@
               <div class="card-deck col-md-8">
                 <div class="card shadow mb-4">
                   <div class="card-body">
-                    <form>
+                    <form method="post" action="././simpan.php?ip=edit_admin">
                       <div class="form-group">
-                        <label for="inputAddress">ID</label>
-                        <input type="number" class="form-control" id="inputAddress" value="<?php echo $show['id_admin'];?>" readonly>
+                        <label for="id_admin">ID</label>
+                        <input type="number" class="form-control" id="id_admin" name="id_admin"  value="<?php echo $show['id_admin'];?>" readonly>
                       </div>
                       <div class="form-group">
-                        <label for="inputAddress">Nama</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="nama" onkeyup="this.value = this.value.toUpperCase()" value="<?php echo $show['nama'];?>" required>
+                        <label for="nama">Nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="nama" onkeyup="this.value = this.value.toUpperCase()" value="<?php echo $show['nama'];?>" required>
                       </div>
                       <div class="form-group">
-                        <label for="inputAddress">Username</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="username" value="<?php echo $show['username'];?>"  required>
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username"  placeholder="username" value="<?php echo $show['username'];?>"  required>
                       </div>
                       <div class="form-group">
-                        <label for="inputAddress">Password</label>
-                        <input type="password" class="form-control" id="inputAddress" placeholder="password baru" required>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"  placeholder="password baru">
                       </div>
                       <div class="checkbox mb-3">
                         <label>
@@ -47,7 +47,7 @@
                             </script>
                       </div>
                       <div class="form-group">
-                        <label for="inputAddress2">Level</label>
+                        <label for="level">Level</label>
                         <select id="level" class="form-control" name="level">
                           <?php
                           if ($show['level']=='admin') { ?>
@@ -64,7 +64,7 @@
                         </select>
                       </div>
                       <a href="home.php?r=data_pengguna" class="btn btn-danger">Kembali</a>
-                      <button type="submit" class="btn btn-primary">Tambah</button>
+                      <button type="submit" class="btn btn-primary">Perbarui</button>
                     </form>
                   </div>
                 </div>

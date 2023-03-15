@@ -85,7 +85,7 @@
                             ?>
                         </tbody>
                       </table>
-                      <a href="././export.php?e=export_transaksi&date1=<?php echo $date1;?>&date2=<?php echo $date2;?>&kelas=<?php echo $kelas;?>" target="_blank" class="btn btn-success">Eksport Excell</a>
+                      <a href="././export.php?e=export_transaksi&date1=<?php echo $date1;?>&date2=<?php echo $date2;?>&kelas=<?php echo $kelas;?>" target="_blank" class="btn btn-success text-white">Export Excell</a>
                     </div>
                   </div>
                 </div> <!-- simple table -->

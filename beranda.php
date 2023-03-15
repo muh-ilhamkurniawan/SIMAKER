@@ -12,7 +12,7 @@
                       <div class="row align-items-center">
                         <div class="col-3 text-center">
                           <span class="circle circle-sm bg-primary">
-                            <i class="fe fe-16 fe-shopping-bag text-white mb-0"></i>
+                            <i class="fe fe-16 fe-box text-white mb-0"></i>
                           </span>
                         </div>
                         <div class="col pr-0">
@@ -35,7 +35,7 @@
                       <div class="row align-items-center">
                         <div class="col-3 text-center">
                           <span class="circle circle-sm bg-primary">
-                            <i class="fe fe-16 fe-shopping-cart text-white mb-0"></i>
+                            <i class="fe fe-16 fe-grid text-white mb-0"></i>
                           </span>
                         </div>
                         <div class="col pr-0">
@@ -58,7 +58,7 @@
                       <div class="row align-items-center">
                         <div class="col-3 text-center">
                           <span class="circle circle-sm bg-primary">
-                            <i class="fe fe-16 fe-filter text-white mb-0"></i>
+                            <i class="fe fe-16 fe-pie-chart text-white mb-0"></i>
                           </span>
                         </div>
                         <div class="col">
@@ -79,13 +79,15 @@
                     </div>
                   </div>
                 </div>
+                <?php
+                if ($_SESSION['b_level']=='admin') {?>
                 <div class="col-md-6 col-xl-3 mb-4">
                   <div class="card shadow">
                     <div class="card-body">
                       <div class="row align-items-center">
                         <div class="col-3 text-center">
                           <span class="circle circle-sm bg-primary">
-                            <i class="fe fe-16 fe-activity text-white mb-0"></i>
+                            <i class="fe fe-16 fe-user text-white mb-0"></i>
                           </span>
                         </div>
                         <div class="col">
@@ -102,6 +104,9 @@
                     </div>
                   </div>
                 </div>
+                <?php 
+                  }
+                ?>
               </div> <!-- end section -->
               <!-- info small box -->
               <div class="row">
@@ -182,7 +187,9 @@
                               <span class="small text-muted mb-0">Dibuat sebagai hasil kerja praktek </br>Mahasiswa Informatika Universitas Jendral Soedirman </br> @2023</span>
                             </div>
                             <div class="col mb-2">
+                              <a href="https://drive.google.com/drive/folders/1tPgN_U5jQ-GrAbes7q9glwA6_E55qiLZ?usp=sharing" target="_blank">
                               <button type="button" class="btn btn-primary">Unduh Panduan</button>
+                              </a>
                             </div>
                           </div>
                         </div>
