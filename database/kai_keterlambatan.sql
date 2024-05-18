@@ -1,0 +1,328 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: May 18, 2024 at 03:22 PM
+-- Server version: 5.7.39
+-- PHP Version: 8.1.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `kai_keterlambatan`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `activity_log`
+--
+
+CREATE TABLE `activity_log` (
+  `id` bigint(11) NOT NULL,
+  `nama_user` varchar(30) NOT NULL,
+  `level` varchar(25) NOT NULL,
+  `waktu_login` datetime NOT NULL,
+  `waktu_logout` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `activity_log`
+--
+
+INSERT INTO `activity_log` (`id`, `nama_user`, `level`, `waktu_login`, `waktu_logout`) VALUES
+(98, 'admin_kta', 'admin', '2023-03-02 14:40:52', '2023-03-02 14:42:22'),
+(99, 'operator_kta', 'operator', '2023-03-02 14:47:40', '2023-03-02 15:04:21'),
+(100, 'admin_kta', 'admin', '2023-03-02 20:07:47', '2023-03-02 20:14:19'),
+(101, 'operator_kta', 'operator', '2023-03-03 21:25:52', '2023-03-03 21:34:03'),
+(102, 'admin_kta', 'admin', '2023-03-03 21:38:23', '2023-03-03 22:00:33'),
+(103, 'operator_kta', 'operator', '2023-03-03 22:00:42', '2023-03-03 22:02:20'),
+(104, 'admin_kta', 'admin', '2023-03-04 20:20:42', '2023-03-04 21:14:45'),
+(105, 'operator_kta', 'operator', '2023-03-04 20:25:53', '2023-03-04 20:26:07'),
+(107, 'admin_kta', 'admin', '2023-03-09 19:24:58', '2023-03-09 19:28:32'),
+(108, 'admin_kta', 'admin', '2023-03-12 21:16:53', '2023-03-12 22:45:50'),
+(109, 'admin_kta', 'admin', '2023-03-13 10:59:47', '2023-03-13 13:05:15'),
+(110, 'admin_kta', 'admin', '2023-03-14 12:36:24', '2023-03-14 12:41:17'),
+(111, 'operator_kta', 'operator', '2023-03-14 12:41:27', '2023-03-14 12:42:24'),
+(112, 'admin_kta', 'admin', '2023-03-25 21:36:30', '2023-03-25 21:36:40'),
+(113, 'admin_kta', 'admin', '2023-04-05 09:15:26', '2023-04-05 09:15:40'),
+(114, 'admin_kta', 'admin', '2023-04-05 09:15:45', '2023-04-05 09:15:54'),
+(115, 'admin_kta', 'admin', '2023-04-12 21:19:29', '2023-04-12 21:59:20'),
+(116, 'admin_kta', 'admin', '2023-04-13 10:10:10', '2023-04-13 10:33:11'),
+(117, 'admin_kta', 'admin', '2023-04-13 10:46:57', '2023-04-13 10:58:01'),
+(118, 'admin_kta', 'admin', '2023-04-13 11:01:15', '2023-04-13 11:14:51'),
+(119, 'admin_kta', 'admin', '2023-05-29 10:50:56', '2023-05-29 11:18:21'),
+(120, 'admin_kta', 'admin', '2023-08-02 20:33:09', '2023-08-02 20:34:41'),
+(121, 'admin_kta', 'admin', '2023-08-02 20:34:55', '2023-08-02 20:36:44'),
+(122, 'operator_kta', 'operator', '2023-08-02 20:37:16', '2023-08-02 20:37:19'),
+(123, 'admin_kta', 'admin', '2023-08-08 19:04:11', '0000-00-00 00:00:00'),
+(124, 'admin_kta', 'admin', '2023-08-08 19:04:28', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id_admin` int(11) NOT NULL,
+  `username` varchar(32) DEFAULT NULL,
+  `password` varchar(128) DEFAULT NULL,
+  `level` varchar(20) DEFAULT NULL,
+  `nama` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `username`, `password`, `level`, `nama`) VALUES
+(22, 'operator_kta', 'a14167ba3f48b34d7888a817b3f723f7', 'operator', 'OPERATOR KUTOARJO'),
+(23, 'admin_kta', '8d1766133318c049fb7c76b4cb1f4f6b', 'admin', 'ADMIN KUTOARJO'),
+(26, 'firman1', '1f82953fb99040993101098a29860f16', 'operator', 'FIRMAN');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kelas`
+--
+
+CREATE TABLE `kelas` (
+  `kode_kelas` int(3) NOT NULL,
+  `nama_kelas` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kelas`
+--
+
+INSERT INTO `kelas` (`kode_kelas`, `nama_kelas`) VALUES
+(79, 'KERETA PENUMPANG GANJIL'),
+(80, 'KERETA PENUMPANG GENAP'),
+(81, 'KERETA BARANG GANJIL'),
+(82, 'KERETA BARANG GENAP'),
+(95, 'KERETA TAMBAHAN');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kereta`
+--
+
+CREATE TABLE `kereta` (
+  `no_ka` varchar(25) NOT NULL,
+  `nama` varchar(64) DEFAULT NULL,
+  `tujuan` varchar(25) DEFAULT NULL,
+  `kelas` varchar(25) DEFAULT NULL,
+  `kedatangan` time NOT NULL,
+  `keberangkatan` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kereta`
+--
+
+INSERT INTO `kereta` (`no_ka`, `nama`, `tujuan`, `kelas`, `kedatangan`, `keberangkatan`) VALUES
+('101', 'SINGASARI', 'PASAR SENEN', 'KERETA PENUMPANG GENAP', '22:52:00', '22:57:00'),
+('102', 'SINGASARI', 'BLITAR', 'KERETA PENUMPANG GENAP', '01:12:00', '01:19:00'),
+('103A', 'GAYABARU MALAM SEL', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '18:03:00', '18:10:00'),
+('104A', 'GAYABARU MALAM SEL', 'SURABAYA GUBENG', 'KERETA PENUMPANG GENAP', '18:26:00', '18:32:00'),
+('111A', 'RANGGAJATI', 'CIREBON', 'KERETA PENUMPANG GANJIL', '15:03:00', '15:10:00'),
+('112A', 'RANGGAJATI', 'SURABAYA GUBENG', 'KERETA PENUMPANG GENAP', '10:15:00', '10:20:00'),
+('115', 'WIJAYA KUSUMA', 'CILACAP', 'KERETA PENUMPANG GANJIL', '00:04:00', '00:09:00'),
+('116', 'WIJAYA KUSUMA', 'SURABAYA GUBENG', 'KERETA PENUMPANG GENAP', '17:22:00', '17:25:00'),
+('119', 'MALABAR', 'BANDUNG', 'KERETA PENUMPANG GANJIL', '00:18:00', '00:23:00'),
+('120', 'MALABAR', 'MALANG', 'KERETA PENUMPANG GENAP', '23:37:00', '23:40:00'),
+('122A', 'BANGUNKARTA', 'JOMBANG', 'KERETA PENUMPANG GENAP', '18:46:00', '18:51:00'),
+('131', 'MUTIARA SELATAN', 'BANDUNG', 'KERETA PENUMPANG GANJIL', '01:05:00', '01:10:00'),
+('131B', 'PARAMEX', 'PURWOKERTO', 'KERETA PENUMPANG GANJIL', '22:13:00', '22:19:00'),
+('132', 'MUTIARA SELATAN', 'SURABAYA GUBENG', 'KERETA PENUMPANG GENAP', '02:59:00', '03:02:00'),
+('132A', 'BOGOWONTO', 'PURWOKERTO', 'KERETA PENUMPANG GANJIL', '13:40:00', '13:45:00'),
+('133A', 'SENJA UTAMA SOLO', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '19:55:00', '19:58:00'),
+('134A', 'FAJAR UTAMA SOLO', 'SOLO BALAPAN', 'KERETA PENUMPANG GENAP', '12:41:00', '12:46:00'),
+('135A', 'MATARAM', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '10:36:00', '10:40:00'),
+('136A', 'MATARAM', 'SOLO BALAPAN', 'KERETA PENUMPANG GENAP', '04:16:00', '04:19:00'),
+('137F', 'BOGOWONTO', 'PASAR SENEN', '', '10:59:00', '11:04:00'),
+('138F', 'BOGOWONTO', 'LEMPUYANGAN', 'KERETA PENUMPANG GENAP', '04:55:00', '04:58:00'),
+('139A', 'GAJAHWONG', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '18:42:00', '18:45:00'),
+('13C', 'LOGAWA', 'TANAH ABANG', 'KERETA PENUMPANG GANJIL', '12:10:00', '12:25:00'),
+('140A', 'GAJAHWONG', 'LEMPUYANGAN', 'KERETA PENUMPANG GENAP', '14:49:00', '15:05:00'),
+('141A', 'SENJA UTAMA YK', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '19:40:00', '19:43:00'),
+('142A', 'SENJA UTAMA YK', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '02:32:00', '02:35:00'),
+('143F', 'FAJAR UTAMA YK', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '07:56:00', '07:59:00'),
+('144F', 'FAJAR UTAMA YK', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '15:46:00', '15:49:00'),
+('153A', 'SAWUNGGALIH', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '00:00:00', '07:00:00'),
+('154A', 'SAWUNGGALIH', 'KUTOARJO', 'KERETA PENUMPANG GENAP', '14:31:00', '00:00:00'),
+('155A', 'SAWUNGGALIH', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '00:00:00', '19:00:00'),
+('156A', 'SAWUNGGALIH', 'KUTOARJO', 'KERETA PENUMPANG GENAP', '02:04:00', '00:00:00'),
+('157', 'LODAYA', 'BANDUNG', 'KERETA PENUMPANG GANJIL', '20:49:00', '20:52:00'),
+('158', 'LODAYA', 'SOLO BALAPAN', 'KERETA PENUMPANG GENAP', '01:33:00', '01:39:00'),
+('159F', 'LODAYA', 'BANDUNG', 'KERETA PENUMPANG GANJIL', '09:10:00', '09:13:00'),
+('160F', 'LODAYA', 'SOLO BALAPAN', 'KERETA PENUMPANG GENAP', '13:16:00', '13:19:00'),
+('169', 'KERTANEGARA', 'PURWOKERTO', 'KERETA PENUMPANG GANJIL', '15:38:00', '15:43:00'),
+('170', 'KERTANEGARA', 'MALANG', 'KERETA PENUMPANG GENAP', '19:53:00', '19:56:00'),
+('17C', 'BOGOWONTO', 'TANAH ABANG', 'KERETA PENUMPANG GANJIL', '15:17:00', '15:30:00'),
+('190A', 'JOGLOSEMARKERTO', 'SOLO BALAPAN', 'KERETA PENUMPANG GENAP', '15:40:00', '15:42:00'),
+('195A', 'JOGLOSEMARKERTO', 'TEGAL', 'KERETA PENUMPANG GANJIL', '08:06:00', '08:13:00'),
+('223F', 'NUSA TEMBINI', 'CILACAP', 'KERETA PENUMPANG GANJIL', '12:15:00', '12:18:00'),
+('224F', 'NUSA TEMBINI', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '08:04:00', '08:09:00'),
+('231F', 'NUSA TEMBINI', 'CILACAP', 'KERETA PENUMPANG GANJIL', '07:11:00', '07:18:00'),
+('232F', 'NUSA TEMBINI', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '12:08:00', '12:11:00'),
+('23A', 'BOGOWONTO', 'PURWOKERTO', 'KERETA PENUMPANG GANJIL', '14:15:00', '14:25:00'),
+('247', 'LOGAWA', 'PURWOKERTO', 'KERETA PENUMPANG GANJIL', '17:24:00', '17:30:00'),
+('248', 'LOGAWA', 'SURABAYA GUBENG', 'KERETA PENUMPANG GENAP', '07:31:00', '07:37:00'),
+('253A', 'JAYAKARTA', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '20:18:00', '20:21:00'),
+('254A', 'JAYAKARTA', 'SURABAYA GUBENG', 'KERETA PENUMPANG GENAP', '00:25:00', '00:31:00'),
+('257', 'JAKA TINGKIR', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '08:58:00', '09:01:00'),
+('258', 'JAKA TINGKIR', 'PURWOSARI', 'KERETA PENUMPANG GENAP', '01:23:00', '01:29:00'),
+('259F', 'KUTOJAYA SELATAN', 'JAKARTA KOTA', 'KERETA PENUMPANG GANJIL', '00:00:00', '17:10:00'),
+('260F', 'KUTOJAYA SELATAN', 'KUTOARJO', 'KERETA PENUMPANG GENAP', '13:36:00', '00:00:00'),
+('2725', 'KARSOLO SERVICE', 'SLO-KRL', 'KERETA PENUMPANG GANJIL', '23:25:00', '23:28:00'),
+('2726', 'KARSOLO SERVICE', 'SOLO BALAPAN', 'KERETA PENUMPANG GENAP', '11:13:00', '11:20:00'),
+('2732', 'KALEM SERVICE', 'LEMPUYANGAN', 'KERETA PENUMPANG GANJIL', '18:06:00', '18:12:00'),
+('2759F', 'KARSOLO SERVICE', 'SLO-KRL', 'KERETA PENUMPANG GANJIL', '19:17:00', '19:24:00'),
+('2760F', 'KARSOLO SERVICE', 'SOLO BALAPAN', 'KERETA PENUMPANG GENAP', '08:26:00', '08:49:00'),
+('283', 'KAHURIPAN', 'KIARACONDONG', 'KERETA PENUMPANG GANJIL', '22:41:00', '22:44:00'),
+('284', 'KAHURIPAN', 'BLITAR', 'KERETA PENUMPANG GENAP', '06:16:00', '06:23:00'),
+('285', 'PASUNDAN', 'KIARACONDONG', 'KERETA PENUMPANG GANJIL', '12:32:00', '12:38:00'),
+('286', 'PASUNDAN', 'SURABAYA GUBENG', 'KERETA PENUMPANG GENAP', '17:03:00', '17:08:00'),
+('291A', 'BENGAWAN', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '23:11:00', '23:16:00'),
+('292A', 'BENGAWAN', 'PURWOSARI', 'KERETA PENUMPANG GENAP', '13:57:00', '14:02:00'),
+('293A', 'PROGO', 'PASAR SENEN', 'KERETA PENUMPANG GANJIL', '16:12:00', '16:15:00'),
+('294A', 'PROGO', 'LEMPUYANGAN', 'KERETA PENUMPANG GENAP', '06:02:00', '06:05:00'),
+('295A', 'PARCEL TENGAH', 'KAMPUNG BANDAN', 'KERETA PENUMPANG GANJIL', '01:17:00', '01:35:00'),
+('296A', 'PARCEL TENGAH', 'MALANG', 'KERETA PENUMPANG GENAP', '04:02:00', '04:09:00'),
+('299', 'PARCEL SELATAN', 'BANDUNG', 'KERETA PENUMPANG GANJIL', '01:49:00', '02:07:00'),
+('300', 'PARCEL SELATAN', 'SURABAYA KOTA', 'KERETA PENUMPANG GENAP', '04:38:00', '04:47:00'),
+('311', 'KUTOJAYA SELATAN', 'KIARACONDONG', 'KERETA PENUMPANG GANJIL', '00:00:00', '09:50:00'),
+('312', 'KUTOJAYA SELATAN', 'KUTOARJO', 'KERETA PENUMPANG GENAP', '05:38:00', '00:00:00'),
+('5', 'ARGO LAWU', 'BANDUNG', 'KERETA PENUMPANG GANJIL', '11:53:00', '11:58:00'),
+('501', 'BANDARA YIA', 'KEBUMEN', 'KERETA PENUMPANG GANJIL', '09:24:00', '09:26:00'),
+('502', 'BANDARA YIA', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '10:46:00', '10:52:00'),
+('503', 'BANDARA YIA', 'KEBUMEN', 'KERETA PENUMPANG GANJIL', '15:55:00', '16:00:00'),
+('504', 'BANDARA YIA', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '17:35:00', '17:38:00'),
+('57A', 'ARGO LAWU', 'GAMBIR', 'KERETA PENUMPANG GANJIL', '11:38:00', '11:43:00'),
+('58A', 'ARGO LAWU', 'SOLO BALAPAN', 'KERETA PENUMPANG GENAP', '05:25:00', '05:30:00'),
+('6', 'ARGO LAWU', 'SURABAYA GUBENG', 'KERETA PENUMPANG GENAP', '13:47:00', '13:52:00'),
+('602', 'PRAMBANAN EXPRESS', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '00:00:00', '04:23:00'),
+('608', 'PRAMBANAN EXPRESS', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '00:00:00', '08:30:00'),
+('609', 'PRAMBANAN EXPRESS', 'KUTOARJO', 'KERETA PENUMPANG GANJIL', '13:27:00', '00:00:00'),
+('60A', 'ARGO DWIPANGGA', 'SOLO BALAPAN', 'KERETA PENUMPANG GANJIL', '16:47:00', '16:50:00'),
+('613', 'PRAMBANAN EXPRESS', 'KUTOARJO', 'KERETA PENUMPANG GANJIL', '16:41:00', '00:00:00'),
+('614', 'PRAMBANAN EXPRESS', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '00:00:00', '13:38:00'),
+('618', 'PRAMBANAN EXPRESS', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '00:00:00', '17:50:00'),
+('619', 'PRAMBANAN EXPRESS', 'KUTOARJO', 'KERETA PENUMPANG GANJIL', '20:39:00', '00:00:00'),
+('71A', 'GAJAYANA', 'GAMBIR', 'KERETA PENUMPANG GANJIL', '21:03:00', '21:08:00'),
+('72A', 'GAJAYANA', 'MALANG', 'KERETA PENUMPANG GENAP', '00:38:00', '00:43:00'),
+('75A', 'BIMA', 'GAMBIR', 'KERETA PENUMPANG GANJIL', '22:10:00', '22:15:00'),
+('76A', 'BIMA', 'SURABAYA GUBENG', 'KERETA PENUMPANG GENAP', '23:31:00', '23:36:00'),
+('79', 'TURANGGA', 'BANDUNG', 'KERETA PENUMPANG GANJIL', '23:38:00', '23:43:00'),
+('80', 'TURANGGA', 'SURABAYA GUBENG', 'KERETA PENUMPANG GENAP', '00:02:00', '00:07:00'),
+('81A', 'TAKSAKA', 'GAMBIR', 'KERETA PENUMPANG GANJIL', '09:38:00', '09:41:00'),
+('82A', 'TAKSAKA', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '15:48:00', '15:53:00'),
+('83A', 'TAKSAKA', 'GAMBIR', 'KERETA PENUMPANG GANJIL', '21:53:00', '21:56:00'),
+('84A', 'TAKSAKA', 'TUGU YOGYAKARTA', 'KERETA PENUMPANG GENAP', '03:28:00', '03:31:00'),
+('90A', 'SERAYU', 'PURWOKERTO', 'KERETA PENUMPANG GANJIL', '09:00:00', '09:20:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksitelat`
+--
+
+CREATE TABLE `transaksitelat` (
+  `id` int(11) NOT NULL,
+  `no_ka` varchar(25) DEFAULT NULL,
+  `tanggal` date NOT NULL,
+  `kedatangan` time NOT NULL,
+  `keberangkatan` time NOT NULL,
+  `lama_datang` int(11) NOT NULL,
+  `lama_berangkat` int(11) NOT NULL,
+  `alasan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaksitelat`
+--
+
+INSERT INTO `transaksitelat` (`id`, `no_ka`, `tanggal`, `kedatangan`, `keberangkatan`, `lama_datang`, `lama_berangkat`, `alasan`) VALUES
+(54, '101', '2023-03-01', '22:55:00', '23:00:00', 3, 3, 'GANGGUAN TRAFIK'),
+(55, '111A', '2023-03-03', '15:05:00', '15:17:00', 2, 7, 'BANJIR'),
+(58, '156A', '2023-04-12', '02:07:00', '00:00:00', 3, 0, 'HUJAN DERAS'),
+(59, '101', '2023-04-13', '22:58:00', '23:00:00', 6, 3, 'BANJIR');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `activity_log`
+--
+ALTER TABLE `activity_log`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indexes for table `kelas`
+--
+ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`kode_kelas`);
+
+--
+-- Indexes for table `kereta`
+--
+ALTER TABLE `kereta`
+  ADD PRIMARY KEY (`no_ka`);
+
+--
+-- Indexes for table `transaksitelat`
+--
+ALTER TABLE `transaksitelat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `activity_log`
+--
+ALTER TABLE `activity_log`
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `kode_kelas` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+
+--
+-- AUTO_INCREMENT for table `transaksitelat`
+--
+ALTER TABLE `transaksitelat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
