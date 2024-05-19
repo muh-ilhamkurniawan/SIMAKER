@@ -16,4 +16,10 @@
     cd SIMAKER
     ```
 
-2.  Jalankan Program
+2.  Import Database
+
+    Import database sistem yang berada di path `"database\kai_keterlambatan.sql"` pada database dengan nama `kai_keterlambatan`
+
+    Atur Informasi Database dan Server pada file `"koneksi.php"`
+
+3.  Jalankan Program
